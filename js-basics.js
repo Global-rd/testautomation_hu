@@ -27,6 +27,7 @@ let logikai1 = true;
 let logikai2 = false;
 console.log(`logikai1 = ${logikai1}, logikai2 = ${logikai2}`);
 let and = logikai1 && logikai2;
+//console.log(logikai1 && logikai2);
 console.log(`logikai1(true) && logikai2(false): ${and}`);
 let or = logikai1 || logikai2;
 console.log(`logikai1(true) || logikai2(false): ${or}`);
@@ -69,3 +70,23 @@ function userinfo(user) {
 }
 userinfo(user); //meghívom a függvényt a user objektummal
 
+// Bónusz feladat (opcionális)
+// Írj egy egyszerű függvényt, ami bemenetként kap egy tömböt, és visszaadja az átlagát.
+function average(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum / array.length;
+}
+let array = new Array(1, 2, 3, 4, 5, 6); // új tömb
+console.log(`Átlag: ${average(array)}`); // meghívom az függvényt a tömbbel
+
+//Ellenőrizd egy reguláris kifejezéssel, hogy egy email cím helyes formátumú-e (pl. valami@valami.hu).
+let email = "john.doe@example.com";
+let email2 = "johndoeexample.com";
+let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // egyszerű email ellenőrzés (copilot szerint)
+console.log(regexEmail.test(email)); //true/false eredmény
+console.log(email.match(regexEmail)); //tömb (találat) vagy null
+console.log(regexEmail.test(email2));
+console.log(email2.match(regexEmail));
