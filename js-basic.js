@@ -119,4 +119,5 @@ console.log(`A tömb átlaga: ${atlag(szamok)}`); //kiíratom az átlagot
 
 let email = "valami@valami.hu"
 let regex =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-console.log(`Az email cím helyes: ${regex.test(email)}`); //itt létrehozok egy reguláris kifejezést, ami ellenőrzi az email cím formátumát, majd kiíratom a teszt eredményét
+console.log(`Az email cím helyes: ${regex.test(email)}`); //itt létrehozok egy reguláris kifejezést, 
+// ami ellenőrzi az email cím formátumát, majd kiíratom a teszt eredményét
