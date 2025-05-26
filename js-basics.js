@@ -92,10 +92,6 @@ console.log("A tömb átlaga:", calculateAverage(array));
 // Bónusz feladat 0.2: Email validáció
 let email = "simodavidd99@gmail.com";
 function validateEmail(email) {
-  if (email.includes("@") && email.includes(".")) {
-    return "Az email cím érvényes.";
-  } else {
-    return "Az email cím érvénytelen.";
-  }
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) ? "Az email cím érvényes." : "Az email cím érvénytelen.";
 }
 console.log(validateEmail(email));
