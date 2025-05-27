@@ -12,8 +12,8 @@ console.log(`The value of the "boolean" variable is '${boolean}' and it's type i
 
 console.log('\nTask 2');
 //Random szám változók létrehozása
-let num1 = Math.floor(Math.random() * 100);
-let num2 = Math.floor(Math.random() * 100);
+let num1 = Math.floor((Math.random() * 100) + 1);
+let num2 = Math.floor((Math.random() * 100) + 1);
 
 //Aritmetikai műveletek a szám változókkal
 console.log(`The two random numbers are ${num1} and ${num2}`);
@@ -42,38 +42,69 @@ console.log(`The two parts of the name are "${splittedName[0]}" and "${splittedN
 let regex = /\s/; //Szóköz regexp
 console.log(`There is a space in the name "${fullName}": ${regex.test(fullName)}`);
 
-/*
-3. String műveletek
-○ Hozz létre egy teljes név változót (pl. "Kiss Anna"), és válaszd szét
-vezetéknévre és keresztnévre.
-○ Ellenőrizd reguláris kifejezéssel, hogy a név tartalmaz-e szóközt (/ /).
 
-4. Tömbkezelés
-○ Hozz létre egy tömböt, ami néhány számból áll (pl. [3, 5, 8, 2, 10]).
-○ Írj egy ciklust, ami kiírja a tömb elemeit.
-○ Írj egy másik ciklust, ami csak a páros számokat írja ki.
+console.log('\nTask 4');
+let numbers = [3, 5, 8, 2, 10]; //Tömb létrehozása
 
-5. Objektumkezelés
-○ Hozz létre egy objektumot, amely egy felhasználót reprezentál (név, életkor,
-email).
-○ Írj függvényt, amely paraméterként egy ilyen objektumot vár, és a konzolra
-kiírja a következő formátumban:
+for (let i = 0; i < numbers.length; i++) { //Egy ciklus ami végig iterál a tömbbön
+    //console.log(numbers[i]); //Kiirja a tömb ciklusban aktuális elemét
+}
+console.log(`The numbers array has the following numbers: ${numbers.join(", ")}`); // De igy szebb és rövidebb
 
-"A(z) ‘Név’ nevű felhasználó ‘25’ éves és az email címe:
-‘valami@email.com’"
+let evenNumbers = [];
+for (let i = 0; i < numbers.length; i++) { //Mégegy ciklus ami végig iterál a tömbbön
+    if (numbers[i] % 2 === 0) { //Vizsgáljuk a számokat maradékos osztással, szűrve a páros számokra
+        //console.log(numbers[i]); //Ha a vizsgálat true akkor kiirja a tömb ciklusban aktuális elemét
+        evenNumbers.push(numbers[i])
+    }
+}
+console.log(`The evenNumbers array has the following numbers: ${evenNumbers.join(", ")}`); // Szintén szebb és rövidebb
 
-Technikai elvárások
-● A kódot js-basics.js néven mentsd el.
-● Kommenteld a kódot röviden, magyarázatként.
-● A fájlt töltsd fel egy új branchre a GitHub testautomation_hu repoba - branch nav
-konvencio: “keresztnev_vezeteknev_oraszam”
-● A megoldást linkeld be a Google Classroom felületen, a branch-re mutató GitHub
-linkkel.
 
-Bónusz feladat (opcionális)
-● Írj egy egyszerű függvényt, ami bemenetként kap egy tömböt, és visszaadja az
-átlagát.
-● Ellenőrizd egy reguláris kifejezéssel, hogy egy email cím helyes formátumú-e (pl.
-valami@valami.hu).
+console.log('\nTask 5');
+let me = {
+    name: "Viktor",
+    age: 27,
+    email: "test@email.com"
+}; //Objektum létrehozása
 
-*/
+function showObject(object = Object) { //Függvény létrehozása
+    console.log(`A(z) ‘${object.name}’ nevű felhasználó ‘${object.age}’ éves és az email címe:\n‘${object.email}’`); //Kiirjuk az objektum elemeit
+}
+showObject(me); //Függvény hivása
+
+
+console.log('\nBonus Task');
+function average(array = Array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum = sum + array[i]; //Egy változóba összeadjuk a tömb elemeit
+    }
+    return sum / array.length; //Visszaadjuk az átlagot, elosztjuk az elemszámmal az összeget
+}
+
+let randomNumbers = [];
+for (let i = 0; i < 5; i++) {
+  let randomNum = Math.floor(Math.random() * 100) + 1; //Random szám
+  randomNumbers.push(randomNum); //Feltöltjük tesztadatokkal a tömböt
+}
+let averageNum = average(randomNumbers); //Tároljuk a hivott függvény értékét
+console.log(`The numbers in the array: ${randomNumbers.join(", ")}`); //Kiirjuk a tesztadatokat
+console.log(`The average of the given array is: ${averageNum}`); //Kiirjuk az átlagukat
+
+
+console.log('\nBonus Task 2');
+let validEmail = "valami@valami.hu";
+let invalidEmail = "valami.hu";
+let emailRegex = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gm; //email regex
+
+function isValidEmail(email) { //Vizsgáló függvény
+    if (emailRegex.test(email)) {
+        console.log(`"${email}" is a valid email`);
+    }else{
+        console.log(`"${email}" is NOT a valid email`);
+    }
+}
+
+isValidEmail(validEmail);
+isValidEmail(invalidEmail);
