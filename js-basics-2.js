@@ -153,3 +153,19 @@ veletlenSorsolas();
 
 
 console.log('\nBonus');
+function szures(array, funct) {
+    let result = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (funct(array[i])) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
+
+example1 = szures([-5, 0, 3, -1], num => num < 0);
+example2 = szures([1, 2, 3, 4], szam => szam % 2 === 0);
+
+console.log(example1);
+console.log(example2);
