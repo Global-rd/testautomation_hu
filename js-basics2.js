@@ -81,41 +81,40 @@ console.log("A tomb osszege", osszeg(uresTomb));
 
 //7. feladat
 function biztonsagosOsszeadas(szam1, szam2) {
-    try {
-        if (typeof szam1 !== "number" || typeof szam2 !== "number") {
-            throw new Error("Hibas bemenet");
-        }
-        return szam1 + szam2;
-    } catch (error) {
-        console.error(error.message);
+  try {
+    if (typeof szam1 !== "number" || typeof szam2 !== "number") {
+      throw new Error("Hibas bemenet");
     }
+    return szam1 + szam2;
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
-console.log(biztonsagosOsszeadas(5,10.5));
-console.log(biztonsagosOsszeadas(1,"korte"));
+console.log(biztonsagosOsszeadas(5, 10.5));
+console.log(biztonsagosOsszeadas(1, "korte"));
 
 //8. feladat
 function veletlenSorsolas() {
-    const szamok = [];
-  
-    // 5 veletlen szam generalasa 10 es 100 kozott
-    for (let i = 0; i < 5; i++) {
-      const veletlenSzam = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-      szamok.push(veletlenSzam);
-    }
-  
-    //legnagyobb szam
-    const legnagyobb = Math.max(...szamok);
-  
-    // paros szamok megtalalasa
-    const parosSzamok = szamok.filter(szam => szam % 2 === 0);
-  
-    // Eredmények kiírása
-    console.log("Osszes szam:", szamok);
-    console.log("Legnagyobb szam:", legnagyobb);
-    console.log("Paros szam(ok):", parosSzamok);
+  const szamok = [];
+
+  // 5 veletlen szam generalasa 10 es 100 kozott
+  for (let i = 0; i < 5; i++) {
+    const veletlenSzam = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+    szamok.push(veletlenSzam);
   }
-  
-  //fuggveny meghivasa
-  veletlenSorsolas();
-  
+
+  //legnagyobb szam
+  const legnagyobb = Math.max(...szamok);
+
+  // paros szamok megtalalasa
+  const parosSzamok = szamok.filter((szam) => szam % 2 === 0);
+
+  // Eredmények kiírása
+  console.log("Osszes szam:", szamok);
+  console.log("Legnagyobb szam:", legnagyobb);
+  console.log("Paros szam(ok):", parosSzamok);
+}
+
+//fuggveny meghivasa
+veletlenSorsolas();
