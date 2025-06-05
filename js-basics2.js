@@ -3,6 +3,8 @@ console.log('1. Feladat');
 function ellenorizEletkor(number) {
     number >= 18 ? console.log(`A szemely ${number} eves, tehat felnott`) : console.log(`A szemely ${number} eves, tehat kiskoru`);
 }
+
+
 ellenorizEletkor(20);
 ellenorizEletkor(16)
 
@@ -81,9 +83,10 @@ let osszeg = (arrayOfNumbers) => {
     let sum = 0;
     for (let i = 0; i < arrayOfNumbers.length; i++) {
         sum += arrayOfNumbers[i];
+        return sum
     }
 }
-
+console.log(osszeg([10, 20, 33, 44, 55])); 
 
 
 console.log('\n7. Feladat')
@@ -92,19 +95,19 @@ function biztonsagosOsszeadas(number1, number2) {
         if (typeof number1 !== 'number' || typeof number2 !== 'number') {
             throw new Error('Hibás bemenet!')
         }
-        let sum = console.log(`A két szám összege: ${number1 + number2}`); // Ez csak a konnyebben lathato konzol uzenet miatt. Szerettem volna latni, hogy hibas es helyes bementre mi a valasz. 
-        return sum
+        return sum = number1 + number2
 
     } catch (error) {
         console.log(error.message)
     }
 }
 
-biztonsagosOsszeadas(10, '5');
+console.log(`A két szám összege: ${biztonsagosOsszeadas(10, 40)}`);
+
+
 
 
 console.log('\n8. Feladat');
-
 function veletlenSorsolas() {
     let numbers = []
     for (let i = 0; i < 5; i++) {
