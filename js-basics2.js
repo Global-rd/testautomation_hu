@@ -1,120 +1,144 @@
-
-console.log('1. Feladat');
+console.log("1. Feladat");
 function ellenorizEletkor(number) {
-    number >= 18 ? console.log(`A szemely ${number} eves, tehat felnott`) : console.log(`A szemely ${number} eves, tehat kiskoru`);
+  number >= 18
+    ? console.log(`A szemely ${number} eves, tehat felnott`)
+    : console.log(`A szemely ${number} eves, tehat kiskoru`);
 }
 
-
 ellenorizEletkor(20);
-ellenorizEletkor(16)
+ellenorizEletkor(16);
 
-  
-console.log('\n2. Feladat');
+console.log("\n2. Feladat");
 function napNev(number) {
-    switch (number) {
-        case 1:
-            console.log('Hétfő');
-            break;
-        case 2:
-            console.log('Kedd');
-            break;
-        case 3:
-            console.log('Szerda');
-            break;
-        case 4:
-            console.log('Csütörtök');
-            break;
-        case 5:
-            console.log('Péntek');
-            break;
-        case 6:
-            console.log('Szombat');
-            break;
-        case 7:
-            console.log('Vasárnap');
-            break;
-        default:
-            console.log('Érvénytelen nap');
-    }
+  switch (number) {
+    case 1:
+      console.log("Hétfő");
+      break;
+    case 2:
+      console.log("Kedd");
+      break;
+    case 3:
+      console.log("Szerda");
+      break;
+    case 4:
+      console.log("Csütörtök");
+      break;
+    case 5:
+      console.log("Péntek");
+      break;
+    case 6:
+      console.log("Szombat");
+      break;
+    case 7:
+      console.log("Vasárnap");
+      break;
+    default:
+      console.log("Érvénytelen nap");
+  }
 }
 napNev(3); // Példa hívás
 
-
-console.log('\n3. Feladat');
+console.log("\n3. Feladat");
 function parosSzamok() {
-    let arrayOfNumbers = []; // Letrehoztam egy tombot es elmentettem abba a szamokat, hogy ne toltse ki az egesz console-t a szamokkal
-    for (let number = 0; number <= 50; number ++) {
-        if (number % 2 === 0) {
-            arrayOfNumbers.push(number);
-        }
+  let arrayOfNumbers = []; // Letrehoztam egy tombot es elmentettem abba a szamokat, hogy ne toltse ki az egesz console-t a szamokkal
+  for (let number = 1; number <= 50; number++) {
+    if (number % 2 === 0) {
+      arrayOfNumbers.push(number);
     }
-    console.log(arrayOfNumbers);
+  }
+  console.log(arrayOfNumbers);
 }
 parosSzamok(); // Példa hívás
 
-
 // 4. Feladat
-console.log('\n4. Feladat');
+console.log("\n4. Feladat");
 function jatekDobas() {
-    let randomNumber = Math.floor(Math.random() * 6) + 1;
-    console.log(`A dobott szám: ${randomNumber}`);
-    randomNumber === 6 
-        ? console.log('=> Szerencsés dobás') 
-        : randomNumber > 3 
-            ? console.log('=> Átlagos dobás') 
-            : console.log('=> Szerencsétlen dobás');
+  const randomNumber = Math.floor(Math.random() * 6) + 1;
+  console.log(`A dobott szám: ${randomNumber}`);
+  randomNumber === 6
+    ? console.log("=> Szerencsés dobás")
+    : randomNumber > 3
+    ? console.log("=> Átlagos dobás")
+    : console.log("=> Szerencsétlen dobás");
 }
 
-jatekDobas() 
-
+jatekDobas();
 
 // 5. Feladat
-console.log('\n5. Feladat');
+console.log("\n5. Feladat");
 function osszeadVagyKivon(number1, number2, operator) {
-    operator === '+' ? console.log(`Eredmény: ${number1 + number2}`) : operator === '-' ? console.log(`Eredmény: ${number1 - number2}`) : console.log('Érvénytelen művelet');
+  const validOperators = ["+", "-"];
+  if (!validOperators.includes(operator) || !operator) {
+    console.log("Hibás operátor! Csak '+' vagy '-' engedélyezett.");
+    return;
+  }
+
+  const firstParam = Number(number1);
+  const secondParam = Number(number2);
+
+  if (isNaN(firstParam) || isNaN(secondParam)) {
+    console.log("Hibás számok! Kérlek, számokat adj meg.");
+    return;
+  }
+
+  return operator === "+" ? firstParam + secondParam : firstParam - secondParam;
 }
 
-osszeadVagyKivon(10, 5, '+'); // Példa hívás
-
+console.log(osszeadVagyKivon(10, 5, ""));
+console.log(osszeadVagyKivon(30, "20", "+"));
+console.log(osszeadVagyKivon(56, 5, "-"));
 
 // 6. Feladat
-console.log('\n6. Feladat');
-let osszeg = (arrayOfNumbers) => {
-    let sum = 0;
-    for (let i = 0; i < arrayOfNumbers.length; i++) {
-        sum += arrayOfNumbers[i];
-        return sum
-    }
-}
-console.log(osszeg([10, 20, 33, 44, 55])); 
+console.log("\n6. Feladat");
+const osszeg = (arrayOfNumbers) => {
+  let sum = 0;
+  for (let i = 0; i < arrayOfNumbers.length; i++) {
+    sum += arrayOfNumbers[i];
+  }
+  return sum;
+};
+console.log(osszeg([10, 20, 33, 44, 55]));
 
-
-console.log('\n7. Feladat')
+console.log("\n7. Feladat");
 function biztonsagosOsszeadas(number1, number2) {
-    try {
-        if (typeof number1 !== 'number' || typeof number2 !== 'number') {
-            throw new Error('Hibás bemenet!')
-        }
-        return sum = number1 + number2
-
-    } catch (error) {
-        console.log(error.message)
+  try {
+    if (typeof number1 !== "number" || typeof number2 !== "number") {
+      throw new Error("Hibás bemenet!");
     }
+    return number1 + number2;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
-console.log(`A két szám összege: ${biztonsagosOsszeadas(10, 40)}`);
+console.log(`A két szám összege: ${biztonsagosOsszeadas("hgfj", 40)}`);
 
-
-
-
-console.log('\n8. Feladat');
+console.log("\n8. Feladat");
 function veletlenSorsolas() {
-    let numbers = []
-    for (let i = 0; i < 5; i++) {
-    numbers.push(Math.floor(Math.random() * (101 - 10) ) + 10);
-}
+  let numbers = [];
+  for (let i = 0; i < 5; i++) {
+    numbers.push(Math.floor(Math.random() * (101 - 10)) + 10);
+  }
   console.log(`Az osszes szam a tombben: ${numbers}`);
   console.log(`A legnagyobb szam a tombben: ${Math.max(...numbers)}`);
-  console.log("A paros szamok listaja:" + numbers.filter(num => num % 2 === 0));
+  console.log(
+    "A paros szamok listaja:" + numbers.filter((num) => num % 2 === 0)
+  );
 }
-veletlenSorsolas()
+veletlenSorsolas();
+
+console.log("\nBonusz feladat");
+
+function szures(array, filter) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (filter(array[i])) {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
+}
+
+function filterNumber(number) {
+  return number % 2 === 0;
+}
