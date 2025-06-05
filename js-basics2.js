@@ -110,7 +110,7 @@ function veletlenSorsolas() {
   // paros szamok megtalalasa
   const parosSzamok = szamok.filter((szam) => szam % 2 === 0);
 
-  // Eredmények kiírása
+  // Eredmények kiirasa
   console.log("Osszes szam:", szamok);
   console.log("Legnagyobb szam:", legnagyobb);
   console.log("Paros szam(ok):", parosSzamok);
