@@ -164,3 +164,29 @@ function veletlenSorsolas() {
 }
 veletlenSorsolas(); //függvény meghívása, kiírja az eredményeket
 
+//+1 Bonusz – Moduláris, újrafelhasználható megoldás
+//Készíts egy szures nevű függvényt, amely két paramétert vár:
+//1. Egy tömböt (amit szűrni szeretnél),
+//2. Egy függvényt (ez a feltétel, ami alapján szűrünk).
+
+//A szures függvény csak azokat az elemeket adja vissza, amelyekre a feltétel (predicate
+//function) igaz.
+//Ez a függvény gyakorlatilag egy saját filter() metódus implementálása.
+
+function szures(tomb, feltetel) {
+  let szurtTomb = []; //új tömb a szűrt elemek tárolására
+  for (let i = 0; i < tomb.length; i++) {
+    if (feltetel(tomb[i])) { //ha a feltétel igaz az aktuális elemre
+      szurtTomb.push(tomb[i]); //hozzáadja az elemet a szűrt tömbhöz
+    }
+  }
+  return szurtTomb; //visszaadja a szűrt tömböt
+}
+
+const szamok = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const szuro = (szam) => szam % 2 === 0; //páros számok szűrése
+console.log(szures(szamok, szuro)); //kiírja a páros számokat: [2, 4, 6, 8, 10]
+
+const szuro2 = (szam) => szam > 5; //5-nél nagyobb számok szűrése
+console.log(szures(szamok, szuro2)); //kiírja az 5-nél nagyobb számokat: [6, 7, 8, 9, 10]
+
