@@ -126,4 +126,41 @@ console.log(osszeg(tomb)); //függvény meghívása a tömbbel (21)
 //összeggel.
 //Használj try-catch-et a hiba lekezelésére.
 
+function biztonsagosOsszeadas(szam1, szam2) {
+  try {
+    if (typeof szam1 !== "number" || typeof szam2 !== "number") {
+      throw new Error("Hibás bemenet"); //ha valamelyik nem szám, hibát dob
+    }
+    return szam1 + szam2; //visszaadja az összeget, ha mindkettő szám
+  } catch (error) {
+    console.error(error.message); //hiba esetén kiírja a hibaüzenetet a konzolra
+  }
+}
+console.log(biztonsagosOsszeadas(5, 3)); //(8)
+console.log(biztonsagosOsszeadas(5, "nemszam")); //(Hibás bemenet)
+
+
+//8.Írj egy veletlenSorsolas nevű függvényt, amely 5 darab véletlen számot generál 10 és 100
+//között.
+//Tömbbe menti őket, majd külön kiírja:
+//● az összes számot
+//● a legnagyobbat
+//● a páros számok listáját
+
+function veletlenSorsolas() {
+  let szamok = []; 
+  for (let i = 0; i < 5; i++) {
+    let veletlenSzam = Math.floor(Math.random() * 91) + 10; //véletlen szám generálása 10 és 100 között
+    szamok.push(veletlenSzam); //hozzáadja a véletlen számot a tömbhöz
+  }
+  
+  console.log("Összes szám:", szamok); //kiírja az összes számot
+
+  let legnagyobb = Math.max(...szamok); //megtalálja a legnagyobb számot
+  console.log("Legnagyobb szám:", legnagyobb); //kiírja a legnagyobb számot
+
+  let parosSzamok = szamok.filter(szam => szam % 2 === 0); //szűri a páros számokat
+  console.log("Páros számok:", parosSzamok); //kiírja a páros számokat
+}
+veletlenSorsolas(); //függvény meghívása, kiírja az eredményeket
 
