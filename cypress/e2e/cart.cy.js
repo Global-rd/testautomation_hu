@@ -70,7 +70,7 @@ describe('Shopping and cart checkout', () => {
         cy.url().should('include', 'checkout/cart');
     });
 
-    it.only('SC04 - shows selected items in cart', () => {
+    it('SC04 - shows selected items in cart', () => {
         cy.contains('.nav-pills a', testedCategory).eq(0)
             .should('be.visible')
             .click();
@@ -80,8 +80,6 @@ describe('Shopping and cart checkout', () => {
         })
 
         cy.get('.topcart').click();
-
-        const selectedProductModels = [];
 
         const headerMap = {};
         let modelNrIndex;
@@ -116,13 +114,13 @@ describe('Shopping and cart checkout', () => {
                 } else {
                     expect(rowChildren[headerIndex].textContent.trim()).equals(productInRow[headerToProductFieldMap[headerMap[headerIndex]]]);
                 }
-                
+
             });
 
         }).then(() => {
             const cartValue = Object.values(productData).map(pd => pd.price).reduce((a, b) => a + b);
 
-            cy.get("#totals_table tbody tr").each((row, index) => {
+            cy.get("#totals_table tbody tr").each((row) => {
                 //no ids or anything helpful, we find the row with the sub-total and assume the next cell in the row is the actual value
                 const rowChild = row.children('td');
 
