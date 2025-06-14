@@ -1,3 +1,5 @@
+import {generateUniqueId} from "../support/utils/services";
+
 describe('Shopping and cart checkout', () => {
 
     beforeEach(() => {
@@ -169,7 +171,5 @@ describe('Shopping and cart checkout', () => {
             .and('contain.text', '×');
     });
 
-    function generateUniqueId(prefix = '') {
-        return prefix + Math.random().toString(36).substring(2); // .substring(2) removes "0."
-    }
+
 })
