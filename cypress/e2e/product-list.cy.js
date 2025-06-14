@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('Product list tests', () => {
 
     const testedCategory = /books/i;
     const home = /home/i;
