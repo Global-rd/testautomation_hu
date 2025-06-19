@@ -80,3 +80,18 @@ Ellenőrizzük.
 meg a terméke(ke)t és ellenőrizd hogy az invoice oldalon helyes értékek
 szerepelnek.
 10 pont
+
+4. Hiba kezelés: 
+
+- spec pattern hiba esetén alkalmazd az alábbi lépéseket: 
+4.1. npx cypress cache clear
+
+4.2. rmdir /s /q node_modules
+del package-lock.json
+
+4.3. npm cache clean --force
+
+4.4. Nézz körül és töröld a mappákat:
+C:\Users<username>\AppData\Local\Cypress
+
+4.5. Windows esetén a törlések után és az újra telepítés előtt RESTART!
