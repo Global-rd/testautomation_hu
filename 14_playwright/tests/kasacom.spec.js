@@ -11,8 +11,9 @@ test.describe('Kasa.com - Datepicker tests', () => {
   });
 
   test('should not allow selecting past date', async ({ page }) => {
-    await page.getByRole('textbox', { name: 'Check-in' }).click()
-    await page.waitForSelector('.date-picker');
+    await page.locator('#full-screen-hero-check-in-input').click();
+
+    await page.waitForSelector('#full-screen-hero-date-picker');
 
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
@@ -25,8 +26,9 @@ test.describe('Kasa.com - Datepicker tests', () => {
   });
 
   test('Check-out date must be after check-in date', async ({ page }) => {
-    await page.getByRole('textbox', { name: 'Check-in' }).click()
-    await page.waitForSelector('.date-picker');
+    await page.locator('#full-screen-hero-check-in-input').click();
+
+    await page.waitForSelector('#full-screen-hero-date-picker');
 
     // select tomorrow and click it
     await selectDateOffset(page, 1, { click: true, expectEnabled: true });
