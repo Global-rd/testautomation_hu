@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('getProductName', () => {
+  return cy.get('a.prdocutname') // SIC - This typo gives OCD to me.
+    .then(element => element.text().trim());
+})
+
+Cypress.Commands.add('getPrice', () => {
+  return cy.get('.oneprice,.pricenew')
+    .then(element => Number(element.text().substring(1)));
+});
+
+Cypress.Commands.add('addToCart', () => cy.get('a.productcart').click());
