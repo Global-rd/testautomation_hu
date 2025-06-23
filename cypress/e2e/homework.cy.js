@@ -53,4 +53,150 @@ describe('4. Házi feladat spec', () => {
     cy.get('#categorymenu .nav-pills > li > a:not(a.menu_home)')
       .should('have.length', 7);
   });
+
+  it ('5. Regisztrációs űrlap hibakezelése', () => {
+    cy.visit('/index.php?rt=account/create');
+
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('agree to the Privacy Policy').should('exist');
+
+    cy.get('#AccountFrm_agree').check();
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('Login name')
+      .contains('First Name')
+      .contains('Last Name')
+      .contains('Email Address')
+      .contains('Address 1')
+      .contains('City')
+      .contains('Zip/postal code')
+      .contains('region / state')
+      .contains('Password')
+      .should('exist');
+
+    cy.get('#AccountFrm_firstname')
+      .type('123456789012345678901234567890123');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('First Name')
+      .should('exist');
+
+    cy.get('#AccountFrm_firstname')
+      .clear()
+      .type('12345678901234567890123456789012');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('First Name').should('not.exist');
+
+    cy.get('#AccountFrm_lastname')
+      .type('123456789012345678901234567890123');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('Last Name')
+      .should('exist');
+
+    cy.get('#AccountFrm_lastname')
+      .clear()
+      .type('12345678901234567890123456789012');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('Last Name').should('not.exist');
+
+    cy.get('#AccountFrm_email')
+      .type('user@example.com');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('Email')
+      .should('not.exist');
+
+    cy.get('#AccountFrm_address_1')
+      .type('123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('Address 1')
+      .should('exist');
+
+    cy.get('#AccountFrm_address_1')
+      .clear()
+      .type('12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('Address 1').should('not.exist');
+    
+    cy.get('#AccountFrm_city')
+      .type('12');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('City')
+      .should('exist');
+
+    cy.get('#AccountFrm_city')
+      .type('3456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('City')
+      .should('exist');
+
+    cy.get('#AccountFrm_city')
+      .clear()
+      .type('12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('City').should('not.exist');
+
+    cy.get('#AccountFrm_zone_id')
+      .select(1);
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('region / state')
+      .should('not.exist');
+
+    cy.get('#AccountFrm_postcode')
+      .type('12');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('Zip/postal code')
+      .should('exist');
+
+    cy.get('#AccountFrm_postcode')
+      .type('345678901');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .should('be.visible')
+      .contains('Zip/postal code')
+      .should('exist');
+
+    cy.get('#AccountFrm_postcode')
+      .clear()
+      .type('1234567890');
+    cy.get('#AccountFrm').submit();
+
+    cy.get('.alert')
+      .contains('Zip/postal code')
+      .should('not.exist');
+  });
 });
