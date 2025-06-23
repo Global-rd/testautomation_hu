@@ -46,5 +46,11 @@ describe('4. Házi feladat spec', () => {
       expect(Number(element.text().substring(1)))
         .to.equal(prices.reduce((acc, val) => acc += val));
     });
-  })
+  });
+
+  it('4. Termék kategóriák', () => {
+    cy.visit('/');
+    cy.get('#categorymenu .nav-pills > li > a:not(a.menu_home)')
+      .should('have.length', 7);
+  });
 });
