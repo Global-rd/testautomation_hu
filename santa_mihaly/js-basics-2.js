@@ -25,7 +25,7 @@ function napNev(num) {
 		case 7:
 			return "Vasárnap";
 	default:
-		return "Érvénytelen nap";
+		throw new Error("Érvénytelen nap");
 	}
 }
 
@@ -40,7 +40,7 @@ function parosSzamok() {
 
 //4.
 function jatekDobas() {
-	num = Math.floor(Math.random() * (7 - 1) ) + 1;
+	let num = Math.floor(Math.random() * (7 - 1) ) + 1;
 	if (num == 6) {
 		return "Szerencsés dobás";
 	} else if(num > 2) {
@@ -72,14 +72,14 @@ function biztonsagosOsszeadas(num1, num2) {
 		return num1 + num2;
 	}
 	catch(err) {
-		return "Hibás bemenet!";
+		throw new Error("Hibás bemenet!");
 	}
 }
 
 //8.
 function veletlenSorsolas() {
 	//generate 5 random numbers between 10 and 100
-	arr = []
+	let arr = []
 	for(let i = 0; i < 5; i++) {
 		arr[i] = Math.floor(Math.random() * (101 - 10) ) + 10;
 	}
@@ -95,7 +95,7 @@ function veletlenSorsolas() {
 		}
 	}
 	console.log("A legnagyobb szám a tömbben: " + max);
-	even_arr = []
+	let even_arr = []
 	
 	//even numbers
 	let j = 0;
