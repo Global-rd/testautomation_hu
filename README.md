@@ -21,5 +21,25 @@ npx cypress open
 npm run cy:open
 ```
 
+## Cypress konfiguráció ##
+
+A konfigurációs fájl a generált konfigurációf fájl kiegészítésével történt.
+A `baseUrl` a `https://automationteststore.com/` beállítást tartalmazza,
+hogy a host nevének kiírását ne kelljen minden látogatáskor újra kiírni,
+valamint beállítsa a tesztelendő domain-t. Az URL útvonala azért a
+gyökértől (`/`) kezdődik, mert a tesztek, a tesztektől függően más és más
+oldalakat látogatnak meg.
+A `defaultCommandTimeout` beállítás meg 8 másodpercre van beállítva,
+hogy lassabb kapcsolaton, illetve gépeken is biztosan betöltse
+az elemeket az oldalon.
+
+## Teszt fájlok ##
+
+- **homework.cy.js**
+  tartalmaz közvetlenebb felhasználói élményt ellenőrző teszteket.
+- **guestCheckoutFlow.cy.js**
+  tartalmazza a fizetés tesztet, ezen belül is vendégként (felhasználó nélkül)
+  való fizetést.
+
 [nodejs]: https://nodejs.org/
 [nvm-inst]: https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
