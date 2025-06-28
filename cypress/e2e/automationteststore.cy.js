@@ -28,4 +28,61 @@ describe("Automation Test Store", () => {
         expect(productTitles).to.deep.equal(sortedProductTitles); //assert, hogy a terméknevek rendezettek
       });
   });
+
+  it("Shopping cart feature testing", () => {
+    cy.get("#customer_menu_top").should("be.visible"); //asszert az oldal betöltésére
+    cy.get(
+      'a[href="https://automationteststore.com/index.php?rt=product/category&path=58"]'
+    ).click(); // 'MEN' kategória megnyitása
+    cy.contains("span.maintext", "Men").should("be.visible"); // Megnyílt Men kategória látható
+
+    cy.get('.pricetag.jumbotron a[data-id="76"]').click();
+    cy.get('.pricetag.jumbotron a[data-id="77"]').click();
+
+    var price1 = -1;
+    cy.get('a[data-id="76"]') // 76-os id-jú termék
+      .closest(".pricetag.jumbotron") // szülő konténer
+      .find(".oneprice") // megkeressük benne az árat tartalmazó elemet
+      .invoke("text") // kinyerjük a szöveges tartalmát $...
+      .then((priceText) => {
+        const priceAsNumber = parseFloat(priceText.replace("$", "").trim()); // számra alakítás
+
+        price1 = priceAsNumber;
+        cy.wrap(price1).as('price1'); // mentés aliasként
+      });
+
+    var price2 = -1;
+    cy.get('a[data-id="77"]') // 77-os id-jú termék
+      .closest(".pricetag.jumbotron") // szülő konténer
+      .find(".oneprice") // megkeressük benne az árat tartalmazó elemet
+      .invoke("text") // kinyerjük a szöveges tartalmát $...
+      .then((priceText) => {
+        const priceAsNumber = parseFloat(priceText.replace("$", "").trim()); // számra alakítás
+
+        price2 = priceAsNumber;
+        cy.wrap(price2).as('price2'); // mentés aliasként
+      });
+
+      cy.get('@price1').then((p1) => {
+          cy.get('@price2').then((p2) => {
+            const totalPrice = p1 + p2;
+            cy.wrap(totalPrice).as('totalPrice');
+            });
+        });
+     cy.get('@totalPrice').then((p1) => {
+        cy.log("Total Price: " + p1); // Log the total price
+     });
+
+      cy.contains('span.menu_text', 'Cart').click({ force: true }); // Kattintás a kosár menüpontra
+    cy.contains("span.maintext", " Shopping Cart").should("be.visible"); //megnyílt a kosár oldal, assert
+
+    cy.get('#totals_table tr').find('td').eq(1).invoke("text").then((priceText) => {
+        const subtotal = parseFloat(priceText.replace("$", "").trim()); // számra alakítás
+        cy.get('@totalPrice').then(($totalPrice) => {
+            expect (subtotal).to.equal($totalPrice); // ellenőrizzük, hogy a kosárban lévő árak összege megegyezik-e a várt összeggel
+    });
+});
+
+
+  });
 });
