@@ -92,4 +92,16 @@ describe("Automation Test Store", () => {
       .not(":has(a.menu_home)") // category menü fő konténerben listaelemek adott szintig, Home menü nélkül
       .should("have.length", 7);
   });
+
+
+it("Registration form error handling", () => {
+  //cy.get('a[href="https://automationteststore.com/index.php?rt=account/login"]').click();
+  cy.contains('a', 'Login or register').click();
+  cy.contains('span', 'Account Login').should("be.visible");
+  cy.contains('button[type="submit"]', 'Continue').click();
+  cy.get('button[type="submit"][title="Continue"]').click();
+  cy.contains("Error: You must agree to the Privacy Policy!").should("be.visible"); // hibaüzenet ellenőrzése
+
+});
+
 });
