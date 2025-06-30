@@ -1,10 +1,10 @@
 describe("Automation Test Store", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.get("#customer_menu_top").should("be.visible"); //asszert az oldal betöltésére
   });
 
   it("Test for product list sorting", () => {
-    cy.get("#customer_menu_top").should("be.visible"); //asszert az oldal betöltésére
     cy.get(
       'a[href="https://automationteststore.com/index.php?rt=product/category&path=43"]'
     ).click(); //link keresése a megfelelő attribútummal és kattintás
@@ -30,7 +30,6 @@ describe("Automation Test Store", () => {
   });
 
   it("Shopping cart feature testing", () => {
-    cy.get("#customer_menu_top").should("be.visible"); //asszert az oldal betöltésére
     cy.get(
       'a[href="https://automationteststore.com/index.php?rt=product/category&path=58"]'
     ).click(); // 'MEN' kategória megnyitása
@@ -89,7 +88,6 @@ describe("Automation Test Store", () => {
   });
 
   it("Product categories", () => {
-    cy.get("#categorymenu").should("be.visible");
     cy.get("#categorymenu > nav > ul > li")
       .not(":has(a.menu_home)") // category menü fő konténerben listaelemek adott szintig, Home menü nélkül
       .should("have.length", 7);
