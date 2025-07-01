@@ -93,15 +93,41 @@ describe("Automation Test Store", () => {
       .should("have.length", 7);
   });
 
-
-it("Registration form error handling", () => {
-  //cy.get('a[href="https://automationteststore.com/index.php?rt=account/login"]').click();
-  cy.contains('a', 'Login or register').click();
-  cy.contains('span', 'Account Login').should("be.visible");
-  cy.contains('button[type="submit"]', 'Continue').click();
-  cy.get('button[type="submit"][title="Continue"]').click();
-  cy.contains("Error: You must agree to the Privacy Policy!").should("be.visible"); // hibaüzenet ellenőrzése
-
-});
-
+  it.only("Registration form error handling", () => {
+    //cy.get('a[href="https://automationteststore.com/index.php?rt=account/login"]').click();
+    cy.contains("a", "Login or register").click();
+    cy.contains("span", "Account Login").should("be.visible");
+    cy.contains('button[type="submit"]', "Continue").click(); 
+    cy.get('button[type="submit"][title="Continue"]').click(); //üres beküldés
+    cy.contains("Error: You must agree to the Privacy Policy!").should("be.visible"); // hibaüzenet ellenőrzése
+    cy.contains("First Name must be between 1 and 32 characters!").should("be.visible");
+    cy.contains("Last Name must be between 1 and 32 characters!").should("be.visible");
+    cy.contains("Email Address does not appear to be valid!").should("be.visible");
+    cy.contains("Address 1 must be between 3 and 128 characters!").should("be.visible");
+    cy.contains("City must be between 3 and 128 characters!").should("be.visible");
+    cy.contains("Please select a region / state!").should("be.visible");
+    cy.contains("Zip/postal code must be between 3 and 10 characters!").should("be.visible");
+    cy.contains("Login name must be alphanumeric only and between 5 and 64 characters!").should("be.visible");
+    cy.contains("Password must be between 4 and 20 characters!").should("be.visible");
+    cy.get('#AccountFrm_firstname').type("John"); //adatbevitel
+    cy.get('#AccountFrm_lastname').type("Doe");
+    cy.get('#AccountFrm_email').type("aa&aa.com"); //hibás email formátum
+    cy.get('#AccountFrm_address_1').type("123 Main St");
+    cy.get('#AccountFrm_city').type("New York");
+    cy.get('#AccountFrm_zone_id').select("Cambridgeshire");
+    cy.get('#AccountFrm_postcode').type("12345");
+    cy.get('#AccountFrm_loginname').type("john_doe");
+    cy.get('#AccountFrm_password').type("passwordmorethan20characters"); // túl hosszú jelszó
+    cy.get('button[type="submit"][title="Continue"]').click(); //újabb beküldés
+    cy.contains("Error: You must agree to the Privacy Policy!").should("be.visible");
+    cy.contains("Email Address does not appear to be valid!").should("be.visible");
+    cy.contains("This login name is not available. Try different login name!").should("be.visible");
+    cy.contains("Password confirmation does not match password!").should("be.visible");
+    cy.get('#AccountFrm_email').clear().type("aa@aa.com");
+    cy.get('#AccountFrm_password').clear().type("goodpassword");
+    cy.get('#AccountFrm_confirm').type("goodpassword");
+    cy.get('#AccountFrm_agree').check(); // jelölőnégyzet bejelölése
+    cy.get('button[type="submit"][title="Continue"]').click(); //újabb beküldés
+    cy.contains("This login name is not available. Try different login name!").should("be.visible");
+  });
 });
