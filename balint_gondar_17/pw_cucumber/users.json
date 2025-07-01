@@ -1,0 +1,5 @@
+[
+  { "username": "student", "password": "Password123", "expectSuccess": true },
+  { "username": "invalid", "password": "Password123", "expectSuccess": false },
+  { "username": "student", "password": "wrongpass", "expectSuccess": false }
+]
