@@ -93,7 +93,7 @@ describe("Automation Test Store", () => {
       .should("have.length", 7);
   });
 
-  it.only("Registration form error handling", () => {
+  it("Registration form error handling", () => {
     //cy.get('a[href="https://automationteststore.com/index.php?rt=account/login"]').click();
     cy.contains("a", "Login or register").click();
     cy.contains("span", "Account Login").should("be.visible");

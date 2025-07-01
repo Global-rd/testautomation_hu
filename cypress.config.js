@@ -6,6 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: "https://automationteststore.com/",
-    defaultCommandTimeout: 8000
+    defaultCommandTimeout: 12000
   },
 });
