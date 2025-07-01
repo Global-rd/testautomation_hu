@@ -18,3 +18,8 @@
     - defaultCommandTimeout: 12000 - Idő ezredmásodpercben, amennyit várni kell, mielőtt a legtöbb DOM-alapú parancs időtúllépés miatt meghiúsul.
 
 # Tesztfájlok listája és tartalma 1-2 mondatban
+    automationteststore.cy.js
+        https://automationteststore.com Terméklista rendezés tesztje, Kosár funkciók tesztelése, Termék kategóriák számának ellenőrzése, Regisztrációs űrlap hibakezelésének teszjei
+
+    guestCheckoutFlow.cy.js
+        https://automationteststore.com Vásárlás vendégként és hibaellenőrzés
