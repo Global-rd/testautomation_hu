@@ -1,2 +1,3 @@
 # testautomation_hu
-edit2 
+Cucumber Playwright 
+npx cucumber-js --parallel=3  
