@@ -1,0 +1,26 @@
+{
+  "name": "qa-hazi-6",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run cucumber && npm run report",
+    "cucumber": "cucumber-js --config cucumber.js",
+    "report": "node generate-report.js"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.53.2",
+    "faker": "^5.5.3",
+    "playwright": "^1.53.2"
+  },
+  "devDependencies": {
+    "@cucumber/html-formatter": "^21.12.0",
+    "cucumber-html-reporter": "^7.2.0"
+  }
+}

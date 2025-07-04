@@ -1,0 +1,524 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contact-management;create-a-new-contact",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 430642415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1009894291
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "firstName",
+                      "lastName",
+                      "email",
+                      "phone"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "John",
+                      "Doe",
+                      "john@doe.com",
+                      "1234567890"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 9,
+            "name": "I create a new contact with the following data:",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1937300083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "I should see the new contact in the list",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:60"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 162524292
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 27331917
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;edit-a-contact",
+        "keyword": "Scenario Outline",
+        "line": 21,
+        "name": "Edit a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 161742750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 963093083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "a contact exists",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1940570166
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I edit the contact with \"firstName\" to \"Jonathan\"",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:124"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2049886417
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the contact should be updated",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:214"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30057624
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 25092999
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;edit-a-contact",
+        "keyword": "Scenario Outline",
+        "line": 22,
+        "name": "Edit a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 169500167
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 933959291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "a contact exists",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1933572125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I edit the contact with \"email\" to \"jon@doe.com\"",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:124"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2034744542
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the contact should be updated",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:214"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18917207
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 18828625
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;delete-a-contact",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "Delete a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 169542457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 918952166
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 25,
+            "name": "a contact exists",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1897385415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "I delete the contact",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 285479542
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "the contact should be removed from the list",
+            "match": {
+              "location": "features/step_definitions/contacts.steps.js:243"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2125041
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 17371042
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contact-management",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Contact management",
+    "tags": [
+      {
+        "name": "@contact",
+        "line": 1
+      }
+    ],
+    "uri": "features/contacts.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Successful login with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 175430334
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "features/step_definitions/login.steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 817330416
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I login with email \"testGabor@exampleJuly3.com\" and password \"Test1234!\"",
+            "match": {
+              "location": "features/step_definitions/login.steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 509700000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see the contact list page",
+            "match": {
+              "location": "features/step_definitions/login.steps.js:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14445583
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 21218375
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;failed-login-with-incorrect-password",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Failed login with incorrect password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 158545374
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "I navigate to the login page",
+            "match": {
+              "location": "features/step_definitions/login.steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 868011458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "I login with email \"testGabor@exampleJuly3.com\" and password \"wrongpass\"",
+            "match": {
+              "location": "features/step_definitions/login.steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 94784625
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see an error message",
+            "match": {
+              "location": "features/step_definitions/login.steps.js:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 191586707
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 17072875
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          },
+          {
+            "name": "@expect-failure",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Login functionality",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 1
+      }
+    ],
+    "uri": "features/login.feature"
+  }
+]
