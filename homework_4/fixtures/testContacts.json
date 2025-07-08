@@ -1,0 +1,28 @@
+{
+    "contactOne": {
+        "firstName": "László",
+        "lastName": "Kovács",
+        "birthdate": "1985-02-14",
+        "email": "laszlo.kovacs98@example.com",
+        "phone": "06201234567",
+        "phone2": "06203358754",
+        "street": "Kossuth Lajos utca 10",
+        "city": "Budapest",
+        "state": "Pest",
+        "zipCode": "1055",
+        "country": "Hungary"
+    },
+    "contactTwo": {
+        "firstName": "Eszter",
+        "lastName": "Szabó",
+        "birthdate": "1992-07-23",
+        "email": "eszter.szabo32@example.com",
+        "phone": "06309876543",
+        "phone2": "06302564876",
+        "street": "Petőfi Sándor utca 22",
+        "city": "Debrecen",
+        "state": "Hajdú-Bihar",
+        "zipCode": "4024",
+        "country": "Hungary"
+    }
+}

@@ -1,20 +1,23 @@
 {
-  "name": "homework_4",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "test": "cucumber-js --config cucumber.conf.js",
-    "report": "npx playwright show-report"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "@cucumber/cucumber": "^11.3.0",
-    "@faker-js/faker": "^9.9.0",
-    "@playwright/test": "^1.53.2",
-    "faker": "^5.5.3",
-    "playwright": "^1.53.2"
-  }
+    "name": "homework_4",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "npx cucumber-js --config cucumber.conf.js",
+        "report": "npx playwright show-report",
+        "cucumber": "npm run test"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "@faker-js/faker": "^9.9.0"
+    },
+    "devDependencies": {
+        "@cucumber/cucumber": "^11.3.0",
+        "@playwright/test": "^1.53.2",
+        "faker": "^5.5.3",
+        "playwright": "^1.53.2"
+    }
 }
