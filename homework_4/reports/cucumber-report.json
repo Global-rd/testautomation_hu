@@ -1,0 +1,536 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contact-management;create-a-new-contact",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1070021599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "The user is logged in",
+            "match": {
+              "location": "steps\\contacts.steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 999559800
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "firstName",
+                      "lastName",
+                      "birthdate",
+                      "email",
+                      "phone",
+                      "address",
+                      "city",
+                      "state",
+                      "postalCode",
+                      "country"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Test",
+                      "Elek",
+                      "1990-01-01",
+                      "test@example.com",
+                      "123456789",
+                      "test utca 15",
+                      "Budapest",
+                      "Pest",
+                      "1138",
+                      "Hungary"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 8,
+            "name": "The user add a new contact with the following data:",
+            "match": {
+              "location": "steps\\contacts.steps.js:36"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5015780199,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (D:\\projects\\testautomation_hu\\homework_4\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "email"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "test@example.com"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "The user should see the new contact listed:",
+            "match": {
+              "location": "steps\\contacts.steps.js:57"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 140689699
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 6
+          },
+          {
+            "name": "@create",
+            "line": 6
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;edit-a-contact",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Edit a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 303985099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "The user is logged in",
+            "match": {
+              "location": "steps\\contacts.steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 962904799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 17,
+            "name": "New contact from config",
+            "match": {
+              "location": "steps\\contacts.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 975134800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "The user edit the phone in the contact",
+            "match": {
+              "location": "steps\\contacts.steps.js:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1083289500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "The phone in contact should be changed",
+            "match": {
+              "location": "steps\\contacts.steps.js:84"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 908748100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 321198599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 15
+          },
+          {
+            "name": "@edit",
+            "line": 15
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;delete-a-contact",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Delete a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 290451500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "The user is logged in",
+            "match": {
+              "location": "steps\\contacts.steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 932928699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "The user delete the contact with email",
+            "match": {
+              "location": "steps\\contacts.steps.js:92"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2078894099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "The user should not see that contact anymore",
+            "match": {
+              "location": "steps\\contacts.steps.js:106"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11959699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 62920200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contact",
+            "line": 21
+          },
+          {
+            "name": "@delete",
+            "line": 21
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contact-management",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Contact management",
+    "tags": [],
+    "uri": "features\\contacts.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-functionality;successful-login",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Successful login",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 296835199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "The user navigate to the login page",
+            "match": {
+              "location": "steps\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 927764999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "The user is logging with valid credentials",
+            "match": {
+              "location": "steps\\login.steps.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 97136500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "The user should see the contact list page",
+            "match": {
+              "location": "steps\\login.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 318297699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 62454899
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 3
+          },
+          {
+            "name": "@success",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;login-with-invalid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 17,
+        "name": "Login with invalid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 291960299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "The user navigate to the login page",
+            "match": {
+              "location": "steps\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 833238000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "The user is logging with username \"test@itocska.com\" and password \"wrongpass\"",
+            "match": {
+              "location": "steps\\login.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 73621200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "The user should see an error message",
+            "match": {
+              "location": "steps\\login.steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 196044799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 58070600
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 9
+          },
+          {
+            "name": "@fail",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;login-with-invalid-credentials",
+        "keyword": "Scenario Outline",
+        "line": 18,
+        "name": "Login with invalid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 298638399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "The user navigate to the login page",
+            "match": {
+              "location": "steps\\login.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1195422900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "The user is logging with username \"wrong@mail.com\" and password \"test123\"",
+            "match": {
+              "location": "steps\\login.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85193999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "The user should see an error message",
+            "match": {
+              "location": "steps\\login.steps.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 208305799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 59549899
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 9
+          },
+          {
+            "name": "@fail",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-functionality",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login functionality",
+    "tags": [],
+    "uri": "features\\login.feature"
+  }
+]
