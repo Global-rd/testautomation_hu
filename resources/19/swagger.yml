@@ -1,19 +1,19 @@
 openapi: 3.0.0
 info:
-  title: Felhasználó API
+  title: User API
   version: 1.0.0
-  description: Egyszerű REST API felhasználók létrehozására és listázására
+  description: Simple REST API for handling users
 
 servers:
-  - url: http://localhost:3000/api
+  - url: http://localhost:3000
 
 paths:
   /users:
     get:
-      summary: Felhasználók listázása
+      summary: List users
       responses:
         '200':
-          description: Sikeres válasz
+          description: Success Response
           content:
             application/json:
               schema:
@@ -25,7 +25,7 @@ paths:
                       $ref: '#/components/schemas/User'
 
     post:
-      summary: Új felhasználó létrehozása
+      summary: Create New User
       requestBody:
         required: true
         content:
@@ -34,13 +34,13 @@ paths:
               $ref: '#/components/schemas/NewUser'
       responses:
         '201':
-          description: Sikeres létrehozás
+          description: Creation success
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          description: Hibás kérés
+          description: Request error
 
 components:
   schemas:
@@ -55,6 +55,8 @@ components:
         email:
           type: string
           format: email
+        nick:
+          type: string
 
     NewUser:
       type: object
@@ -66,3 +68,6 @@ components:
           type: string
         email:
           type: string
+        nick:
+          type: string
+      additionalProperties: false

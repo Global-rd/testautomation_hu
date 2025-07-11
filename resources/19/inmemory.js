@@ -5,13 +5,14 @@ const OpenApiValidator = require('express-openapi-validator');
 const app = express();
 app.use(express.json());
 
-const apiSpec = '../resources/19/swagger.yml';
+const path = require('path');
+const apiSpec = path.join(__dirname, 'swagger.yml');
 const users = [];
 
 app.use('/spec', express.static(apiSpec));
-app.use(OpenApiValidator.middleware({ apiSpec, validateRequests: true, }));
+// app.use(OpenApiValidator.middleware({ apiSpec, validateRequests: true, }));
 app.use((err, req, res, next) => {
-    // Validator hibák itt elérhetők
+    // Validator errors
     if (err.status && err.errors) {
         return res.status(err.status).json({
             message: err.message,
@@ -21,6 +22,13 @@ app.use((err, req, res, next) => {
     next(err);
 });
 
+app.use(
+    OpenApiValidator.middleware({
+        apiSpec,
+        validateRequests: true,
+    })
+);
+
 app.post('/users', (req, res) => {
     const user = { id: users.length + 1, ...req.body };
     users.push(user);
@@ -29,6 +37,21 @@ app.post('/users', (req, res) => {
 
 app.get('/users', (req, res) => {
     res.json(users);
+});
+
+console.log('Using spec from:', apiSpec);
+
+// Return validation errors in JSON format
+app.use((err, req, res, next) => {
+    if (err.status && err.errors) {
+        return res.status(err.status).json({
+            message: err.message,
+            errors: err.errors,
+        });
+    }
+
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));

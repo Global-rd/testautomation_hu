@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@apollo/server": "^4.12.2",
+    "express": "^5.1.0",
+    "express-openapi-validator": "^5.5.7",
+    "graphql": "^16.11.0",
+    "kafkajs": "^2.2.4",
+    "yamljs": "^0.3.0"
+  }
+}
