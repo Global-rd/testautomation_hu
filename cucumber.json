@@ -1,0 +1,20 @@
+{
+  "default": {
+    "paths": [
+      "gyorgyi_palatinus_6/features/**/*.feature"
+    ],
+    "require": [
+      "gyorgyi_palatinus_6/features/step_definitions/**/*.js",
+      "gyorgyi_palatinus_6/support/**/*.js"
+    ],
+    "format": [
+      "html:cucumber-report.html",
+      "summary",
+      "json:reports/cucumber-report.json"
+    ],
+    "formatOptions": {
+      "snippetInterface": "async-await"
+    },
+    "timeout": 30000
+  }
+}
