@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","6905","Edit an existing contact","","Tue Jul 15 00:30:31 CEST 2025","passed","Tue Jul 15 00:30:38 CEST 2025","","","",""
+"","6611","Unsuccessful login","","Tue Jul 15 00:30:56 CEST 2025","passed","Tue Jul 15 00:31:03 CEST 2025","","","",""
+"","7572","Register attempts using JSON data","","Tue Jul 15 00:31:03 CEST 2025","failed","Tue Jul 15 00:31:10 CEST 2025","","","",""
+"","5253","Delete an existing contact","","Tue Jul 15 00:30:38 CEST 2025","passed","Tue Jul 15 00:30:43 CEST 2025","","","",""
+"","6785","Add a new contact","","Tue Jul 15 00:30:24 CEST 2025","passed","Tue Jul 15 00:30:31 CEST 2025","","","",""
+"","6599","Unsuccessful login","","Tue Jul 15 00:30:49 CEST 2025","passed","Tue Jul 15 00:30:56 CEST 2025","","","",""
+"","6475","Successful login","","Tue Jul 15 00:30:43 CEST 2025","passed","Tue Jul 15 00:30:49 CEST 2025","","","",""
