@@ -1,0 +1,26 @@
+{
+  "name": "hazi_6",
+  "version": "1.0.0",
+  "description": "End-to-end tests with Playwright and Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "ALLURE_RESULTS_DIR=allure-results cucumber-js --config cucumber.json",
+    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
+  "keywords": [],
+  "author": "Györgyi Palatinus",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@cucumber/messages": "^28.0.0",
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^24.0.12",
+    "allure-commandline": "^2.34.1",
+    "allure-cucumberjs": "^3.3.1",
+    "allure-js-commons": "^3.3.0",
+    "playwright": "^1.53.2"
+  },
+  "dependencies": {
+    "allure-playwright": "^3.3.0"
+  }
+}
