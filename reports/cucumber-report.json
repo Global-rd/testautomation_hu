@@ -1,0 +1,709 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-a-new-contact",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2372926791
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1939004624
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "the user creates a new contact with valid information",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:84"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2785718665
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the contact is successfully added to the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:86"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 48365041
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the contact appears in the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:106"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5050417
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 194934792
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 7
+          },
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;edit-an-existing-contact",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Edit an existing contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 774756124
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1877877291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "the user edits the contact information",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:120"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3320080874
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the contact information is updated successfully",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:165"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 254219750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the updated information is displayed in the contact details",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:170"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 365097166
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 144411915
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@edit",
+            "line": 13
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;delete-a-contact",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Delete a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 632546249
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1888691083
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "the user deletes the contact",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:187"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 714747875
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the contact is removed from the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:210"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 282644749
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the contact no longer appears in the list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:215"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 304825874
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 178309625
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@delete",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-multiple-contacts-with-different-data",
+        "keyword": "Scenario Outline",
+        "line": 33,
+        "name": "Create multiple contacts with different data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 742833291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1917228999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "the user creates a contact with \"Noah\", \"Doe\", \"noah.doe@test.com\", and \"1234567890\"",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 905109165
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the contact \"Noah Doe\" appears in the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 968381750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the contact email \"noah.doe@test.com\" is displayed correctly",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:261"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3574208
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 171608292
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-multiple-contacts-with-different-data",
+        "keyword": "Scenario Outline",
+        "line": 34,
+        "name": "Create multiple contacts with different data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 694745958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1999880750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "the user creates a contact with \"Chloé\", \"Smith\", \"chloe.smith@test.com\", and \"1987654321\"",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 894576333
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the contact \"Chloé Smith\" appears in the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 990470250
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the contact email \"chloe.smith@test.com\" is displayed correctly",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:261"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2916583
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 147739958
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-multiple-contacts-with-different-data",
+        "keyword": "Scenario Outline",
+        "line": 35,
+        "name": "Create multiple contacts with different data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 619522000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1872092750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "the user creates a contact with \"Bob\", \"Johnson\", \"bob.johnson@test.com\", and \"1122334455\"",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 887792958
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the contact \"Bob Johnson\" appears in the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 992990249
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the contact email \"bob.johnson@test.com\" is displayed correctly",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:261"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2994042
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 354134582
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-contact-with-comprehensive-data",
+        "keyword": "Scenario",
+        "line": 38,
+        "name": "Create contact with comprehensive data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 697583708
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1921295042
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Field",
+                      "Value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "firstName",
+                      "Alice"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "lastName",
+                      "Brown"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "birthdate",
+                      "1987-08-17"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "email",
+                      "alice@test.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "phone",
+                      "1555123456"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "street1",
+                      "5678 7 Avenue SW"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "city",
+                      "Montréal"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "stateProvince",
+                      "Quebec"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "postalCode",
+                      "H2X 3L5"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "country",
+                      "Canada"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 39,
+            "name": "the user creates a contact with the following information:",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:270"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1546203750
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the contact \"Alice Brown\" appears in the contact list",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 967050625
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "all contact details are saved correctly",
+            "match": {
+              "location": "tests/steps/contacts.steps.js:296"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6329499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 171977749
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 37
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contact-management-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Contact management functionality",
+    "tags": [
+      {
+        "name": "@contacts",
+        "line": 1
+      }
+    ],
+    "uri": "tests/features/contacts.feature"
+  }
+]

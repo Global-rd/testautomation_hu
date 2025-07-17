@@ -1,0 +1,20 @@
+{
+  "newContact": {
+    "firstName": "Emily",
+    "lastName": "Johnson",
+    "birthdate": "1989-08-06",
+    "email": "emily_johnson@example.com",
+    "phone": "1987654321",
+    "street1": "250 Queen Street West",
+    "street2": "",
+    "city": "Toronto",
+    "stateProvince": "Ontario",
+    "postalCode": "M5V 1Z4",
+    "country": "Canada"
+  },
+  "editContact": {
+    "firstName": "Updated",
+    "lastName": "Contact",
+    "email": "updated@example.com"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "playwright-cucumber-project",
+  "version": "1.0.0",
+  "description": "homework_17",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx cucumber-js",
+    "test:login": "npx cucumber-js --tags '@login'",
+    "test:smoke": "npx cucumber-js --tags '@smoke'",
+    "test:negative": "npx cucumber-js --tags '@negative'",
+    "test:contacts": "npx cucumber-js --tags '@contacts'",
+    "test:create": "npx cucumber-js --tags '@create'",
+    "test:edit": "npx cucumber-js --tags '@edit'",
+    "test:delete": "npx cucumber-js --tags '@delete'",
+    "test:playwright": "npx playwright test",
+    "cucumber": "npx cucumber-js --require tests/steps/**/*.js --require support/utils/**/*.js tests/features/**/*.feature",
+    "clean:reports": "rm -rf reports/* test-results/* playwright-report/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Global-rd/testautomation_hu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Global-rd/testautomation_hu/issues"
+  },
+  "homepage": "https://github.com/Global-rd/testautomation_hu#readme",
+  "dependencies": {
+    "@cucumber/cucumber": "^11.3.0"
+  },
+  "devDependencies": {
+    "@cucumber/html-formatter": "^21.13.0",
+    "@cucumber/pretty-formatter": "^1.0.1",
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^24.0.10",
+    "dotenv": "^17.0.1"
+  }
+}
