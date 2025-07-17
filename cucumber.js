@@ -13,7 +13,7 @@ module.exports = {
       "html:reports/cucumber-report.html",
       "@cucumber/pretty-formatter",
     ],
-    paths: ["tests/features/login.feature", "tests/features/contacts.feature"], // // Run login tests first then run contact tests
+    paths: ["tests/features/login.feature", "tests/features/contacts.feature"], // Run login tests first then run contact tests
     timeout: 30000, // 30 seconds timeout
   },
 

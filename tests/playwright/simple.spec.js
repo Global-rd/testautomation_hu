@@ -2,7 +2,7 @@ const { test, expect } = require("@playwright/test");
 
 test.describe("Contact List Application", () => {
   test("should load the contact list homepage", async ({ page }) => {
-    await page.goto("https://thinking-tester-contact-list.herokuapp.com/");
+    await page.goto("/");
 
     // Check page title
     await expect(page).toHaveTitle(/Contact List/);
@@ -16,7 +16,7 @@ test.describe("Contact List Application", () => {
   });
 
   test("should display login form elements", async ({ page }) => {
-    await page.goto("https://thinking-tester-contact-list.herokuapp.com/");
+    await page.goto("/");
 
     // Check all login form elements are present
     await expect(page.locator("#email")).toBeVisible();
