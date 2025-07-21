@@ -1,19 +1,7 @@
-const {Given, When, Then, Before, After} = require("@cucumber/cucumber");
-const {chromium} = require("playwright-core");
+const {Given, When, Then} = require("@cucumber/cucumber");
 const {expect} = require("@playwright/test");
 const { readFileSync} = require("fs");
 
-Before(async function() {
-    this.browser = await chromium.launch({headless: true});
-    this.context = await this.browser.newContext();
-    this.page = await this.context.newPage();
-})
-
-After(async function() {
-    await this.page.close();
-    await this.context.close();
-    await this.browser.close();
-})
 Given('User is on the login page', async function () {
     await this.page.goto('https://thinking-tester-contact-list.herokuapp.com/login');
 });
