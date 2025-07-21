@@ -2,10 +2,10 @@ module.exports = {
     default: {
         publish: false,
         paths: [
-            'gherkin/features/**/*.feature'
+            'features/**/*.feature'
         ],
         require: [
-            'gherkin/step-definitions/**/*.js'
+            'fetures/step-definitions/**/*.js'
         ],
         format: [
             'progress',

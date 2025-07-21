@@ -1,0 +1,14 @@
+{
+  "validUsers": [
+    {
+      "username": "email@testautomation-laba.hu",
+      "password": "password"
+    }
+  ],
+  "invalidPwdUsers": [
+    {
+      "username": "email@testautomation-laba.hu",
+      "password": "invalidPassword"
+    }
+  ]
+}
