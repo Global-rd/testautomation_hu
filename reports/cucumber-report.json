@@ -1,0 +1,765 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contact-management;create-a-new-contact",
+        "keyword": "Scenario Outline",
+        "line": 17,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1673920000
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2499575099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "User is logged in and on the contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 103556100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "User clicks the Add New Contact button",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 575586999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "User fills in the contact form with \"John\", \"Doe\", \"johndoe@laba-test.hu\" and \"987-654-3211\"",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 144667700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "User clicks the Save button",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1020276999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the contact \"johndoe@laba-test.hu\" should appear in the contact list",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 165367700
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1272278599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1081548299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;create-a-new-contact",
+        "keyword": "Scenario Outline",
+        "line": 18,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 926323199
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2186735899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "User is logged in and on the contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 65994799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "User clicks the Add New Contact button",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 558860100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "User fills in the contact form with \"Jane\", \"Doe\", \"janedoe@laba-test.hu\" and \"987-654-3213\"",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 187380599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "User clicks the Save button",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 795246700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the contact \"janedoe@laba-test.hu\" should appear in the contact list",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 151005100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1896003900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1103528100
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;create-a-new-contact",
+        "keyword": "Scenario Outline",
+        "line": 19,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 977978299
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2619596999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "User is logged in and on the contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68807299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "User clicks the Add New Contact button",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 490962899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "User fills in the contact form with \"Doe\", \"Doe\", \"doedoe@laba-test.hu\" and \"987-654-3217\"",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 219699599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "User clicks the Save button",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 705939200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "the contact \"doedoe@laba-test.hu\" should appear in the contact list",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 202192300
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1547320800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1056495499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;edit-an-existing-contact",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Edit an existing contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 859205600
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2120988899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "User is logged in and on the contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36534100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "a contact with the name \"Jane Doe\" exists",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1510434900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "User finds the contact \"Jane Doe\" and clicks to edit",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 637224200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "User updates the phone number to \"987-654-3210\" and saves",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:47"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1726733999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 25,
+            "name": "the contact \"Jane Doe\" should have the phone number \"987-654-3210\"",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:56"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 170525900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1289878299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1227815000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management;delete-a-contact",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Delete a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1089553399
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1926753999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "User is logged in and on the contacts page",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 39961600
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 28,
+            "name": "a contact with the name \"John Doe\" exists",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1476926599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "User finds the contact \"Jane Doe\" and clicks to edit",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:40"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 594127599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "User clicks and confirms delete",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:61"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 983604500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "the contact \"John Doe\" should not appear in the contact list",
+            "match": {
+              "location": "features\\step_definitions\\contacts.steps.js:66"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 36126199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 5082499
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 697178900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 4
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contact-management",
+    "line": 5,
+    "keyword": "Feature",
+    "name": "Contact Management",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 4
+      }
+    ],
+    "uri": "features\\Contacts.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "user-login-functionality;successful-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Successful login with valid credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1270658099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "User is on the login page",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1554776399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "User enters valid username and valid password",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 101509500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "User clicks the Login button",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54416000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "User should be redirected to the contact list",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 499267599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 676482199
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "user-login-functionality;unsuccessful-login-with-incorrect-password",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Unsuccessful login with incorrect password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 943591500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "User is on the login page",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1283498699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "User enters valid username and invalid password",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 240833999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "User clicks the Login button",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 96450800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "User should remain on the login page",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15399300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "User should see an Incorrect username or password error message",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 141107599
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 618026999
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "user-login-functionality",
+    "line": 5,
+    "keyword": "Feature",
+    "name": "User Login Functionality",
+    "tags": [],
+    "uri": "features\\Login.feature"
+  }
+]

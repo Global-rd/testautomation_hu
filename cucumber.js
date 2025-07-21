@@ -2,12 +2,12 @@ module.exports = {
     default: {
         publish: false,
         paths: [
-            'features/*.feature'
+            'features/**/*.feature'
         ],
         require: [
             'support/utils/world.js',
             'support/utils/hooks.js',
-            'features/step-definitions/**/*.js',
+            'features/step_definitions/**/*.js',
         ],
         formatOptions: {
             snippetInterface: "async-await"
