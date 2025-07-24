@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@faker-js/faker": "^9.9.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.2",
+    "@types/node": "^24.0.10"
+  },
+  "scripts": {
+  "test": "cucumber-js --config cucumber.conf.js",
+  "cucumber": "npm run test"
+  }
+}

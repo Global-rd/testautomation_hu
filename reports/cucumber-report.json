@@ -1,0 +1,892 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-a-new-contact",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 981661099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1858258199
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "the user creates a new contact with valid information",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:84"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2692358400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the contact is successfully added to the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:86"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45304099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the contact appears in the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:106"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12327799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 421169399
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 7
+          },
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;edit-an-existing-contact",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Edit an existing contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 707940800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1662911799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "the user edits the contact information",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:120"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3337141799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the contact information is updated successfully",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:165"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 162534000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "the updated information is displayed in the contact details",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:170"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 375071299
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 322990200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@edit",
+            "line": 13
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;delete-a-contact",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Delete a contact",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 796729200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1645849000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "the user deletes the contact",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:187"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 720389800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the contact is removed from the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:210"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 221470900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the contact no longer appears in the list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:215"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5007304399,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\Users\\User\\Documents\\GitHub\\testautomation_hu\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 344229400
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@delete",
+            "line": 19
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-multiple-contacts-with-different-data",
+        "keyword": "Scenario Outline",
+        "line": 33,
+        "name": "Create multiple contacts with different data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 856320499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1662784999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "the user creates a contact with \"Jason\", \"Doe\", \"2022-08-12\"",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 819969000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the contact \"Jason Doe\" appears in the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 446921999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the contact birthdate \"2022-08-12\" is displayed correctly",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:261"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 46769700,
+              "error_message": "locator._expect: Error: strict mode violation: locator('.contactTable tr:has-text(\"Jason Doe\")') resolved to 3 elements:\n    1) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881f94da2ced2001547516aJason')\n    2) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881fad09757ef0015f824b7Jason')\n    3) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881fc779757ef0015f824c5Jason')\n\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.contactTable tr:has-text(\"Jason Doe\")')\u001b[22m\n\n    at CustomWorld.<anonymous> (C:\\Users\\User\\Documents\\GitHub\\testautomation_hu\\tests\\steps\\contacts.steps.js:270:23)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 330981299
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-multiple-contacts-with-different-data",
+        "keyword": "Scenario Outline",
+        "line": 34,
+        "name": "Create multiple contacts with different data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 809429400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1650519299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "the user creates a contact with \"Fester\", \"Hamilton\", \"1900-12-23\"",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 805122999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the contact \"Fester Hamilton\" appears in the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 472492399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the contact birthdate \"1900-12-23\" is displayed correctly",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:261"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 47201500,
+              "error_message": "locator._expect: Error: strict mode violation: locator('.contactTable tr:has-text(\"Fester Hamilton\")') resolved to 3 elements:\n    1) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881f951a2ced2001547516cFester Hamilton1900-12-')\n    2) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881fad4a2ced200154751a7Fester Hamilton1900-12-')\n    3) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881fc7b9757ef0015f824c6Fester Hamilton1900-12-')\n\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.contactTable tr:has-text(\"Fester Hamilton\")')\u001b[22m\n\n    at CustomWorld.<anonymous> (C:\\Users\\User\\Documents\\GitHub\\testautomation_hu\\tests\\steps\\contacts.steps.js:270:23)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 399494200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-multiple-contacts-with-different-data",
+        "keyword": "Scenario Outline",
+        "line": 35,
+        "name": "Create multiple contacts with different data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 795599399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1666891399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "the user creates a contact with \"Bobber\", \"Kurwa\", \"1880-10-23\"",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:230"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 839881900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the contact \"Bobber Kurwa\" appears in the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 445462100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the contact birthdate \"1880-10-23\" is displayed correctly",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:261"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 50397399,
+              "error_message": "locator._expect: Error: strict mode violation: locator('.contactTable tr:has-text(\"Bobber Kurwa\")') resolved to 3 elements:\n    1) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881f9559757ef0015f82483Bobber Kurwa1880-10-')\n    2) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881fad9a2ced200154751a9Bobber Kurwa1880-10-')\n    3) <tr class=\"contactTableBodyRow\">…</tr> aka getByText('6881fc80a2ced200154751baBobber Kurwa1880-10-')\n\nCall log:\n\u001b[2m  - Expect \"to.have.text\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.contactTable tr:has-text(\"Bobber Kurwa\")')\u001b[22m\n\n    at CustomWorld.<anonymous> (C:\\Users\\User\\Documents\\GitHub\\testautomation_hu\\tests\\steps\\contacts.steps.js:270:23)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 324717600
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 25
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-contact-with-comprehensive-data",
+        "keyword": "Scenario",
+        "line": 38,
+        "name": "Create contact with comprehensive data",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 839069299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1906968000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Field",
+                      "Value"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "firstName",
+                      "Test"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "lastName",
+                      "Test2"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "birthdate",
+                      "1991-08-17"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "email",
+                      "Test2@gmail.com"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "phone",
+                      "123456"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "street1",
+                      "Questionedstreet 2"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "city",
+                      "Mexico"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "stateProvince",
+                      "Xgona"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "postalCode",
+                      "1234QA"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "country",
+                      "Imagineland"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 39,
+            "name": "the user creates a contact with the following information:",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:275"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1692778899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "the contact \"Test Test2\" appears in the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:250"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 439616900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "all contact details are saved correctly",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:301"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16849200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 332137900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 37
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contact-management-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Contact management functionality",
+    "tags": [
+      {
+        "name": "@contacts",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\feature\\contacts.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-user-credentials",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Successful login with valid user credentials",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 826870900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 937302500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "the user submits valid credentials for an existing account",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1392359299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the user is redirected to the Contact List page",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 16584399
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 339400900
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-functionality;unsuccessful-login-with-invalid-password",
+        "keyword": "Scenario Outline",
+        "line": 20,
+        "name": "Unsuccessful login with invalid password",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 804551799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 942313699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "the user submits a valid username and an incorrect password",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2436338299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "the user remains on the login page",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5233100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "the error message \"Incorrect username or password\" is displayed",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:49"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 6838999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 360529499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          },
+          {
+            "name": "@negative",
+            "line": 12
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Login functionality",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\feature\\login.feature"
+  }
+]

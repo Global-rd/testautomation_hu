@@ -1,0 +1,20 @@
+{
+  "newContact": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "birthdate": "2002-03-23",
+    "email": "johndoe@invalidmail.com",
+    "phone": "00311234556463",
+    "street1": "123 Main St",
+    "street2": "4/26",
+    "city": "Hertmond",
+    "stateProvince": "Groningen",
+    "postalCode": "1094wr",
+    "country": "Hertageland"
+  },
+  "editContact": {
+    "firstName": "Test",
+    "lastName": "User",
+    "birthdate": "1990-02-23"
+  }
+}

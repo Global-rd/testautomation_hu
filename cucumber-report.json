@@ -1,0 +1,171 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "contact-management-functionality;create-a-new-contact",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Create a new contact",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is logged in and on the Contact List page",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:6"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2197500,
+              "error_message": "TypeError: Cannot read properties of undefined (reading 'goto')\n    at World.<anonymous> (C:\\Users\\User\\Documents\\GitHub\\testautomation_hu\\tests\\steps\\contacts.steps.js:8:19)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "the user creates a new contact with valid information",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:84"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the contact is successfully added to the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:86"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "the contact appears in the contact list",
+            "match": {
+              "location": "tests\\steps\\contacts.steps.js:106"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contacts",
+            "line": 1
+          },
+          {
+            "name": "@create",
+            "line": 7
+          },
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "contact-management-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Contact management functionality",
+    "tags": [
+      {
+        "name": "@contacts",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\feature\\contacts.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-functionality;successful-login-with-valid-user-credentials",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Successful login with valid user credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:4"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 413000,
+              "error_message": "TypeError: Cannot read properties of undefined (reading 'goto')\n    at World.<anonymous> (C:\\Users\\User\\Documents\\GitHub\\testautomation_hu\\tests\\steps\\login.steps.js:5:19)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "the user submits valid credentials for an existing account",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:8"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "the user is redirected to the Contact List page",
+            "match": {
+              "location": "tests\\steps\\login.steps.js:24"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login",
+            "line": 1
+          },
+          {
+            "name": "@smoke",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-functionality",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Login functionality",
+    "tags": [
+      {
+        "name": "@login",
+        "line": 1
+      }
+    ],
+    "uri": "tests\\feature\\login.feature"
+  }
+]
