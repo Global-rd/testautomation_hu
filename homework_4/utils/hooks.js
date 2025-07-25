@@ -13,6 +13,8 @@ After(async function (scenario) {
     await this.close();
 });
 
+// Tesztadatok törlése
+
 AfterAll({ timeout: 60000 }, async function () {
     const browser = await chromium.launch();
     const page = await browser.newPage();
@@ -28,7 +30,6 @@ AfterAll({ timeout: 60000 }, async function () {
     console.log(`\nFound ${rows.length} contact rows to delete`);
 
     while (rows.length > 0) {
-        console.log('Deleting a contact...');
         await rows[0].click();
         await page.waitForSelector('#delete');
         
@@ -43,5 +44,5 @@ AfterAll({ timeout: 60000 }, async function () {
     }
 
     await browser.close();
-    console.log('AfterAll hook finished, all contacts deleted');
+    console.log('All contacts deleted');
 });

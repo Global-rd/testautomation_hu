@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1009680800
+              "duration": 364957700
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 963293500
+              "duration": 1128958399
             }
           },
           {
@@ -73,7 +73,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 990780100
+              "duration": 1345932699
             }
           },
           {
@@ -101,7 +101,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 344122400
+              "duration": 869532800
             }
           },
           {
@@ -109,7 +109,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 76996599
+              "duration": 85412800
             }
           }
         ],
@@ -137,7 +137,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 322439800
+              "duration": 461389699
             }
           },
           {
@@ -150,7 +150,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 931769600
+              "duration": 1231852100
             }
           },
           {
@@ -163,7 +163,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1011848899
+              "duration": 1322218199
             }
           },
           {
@@ -176,7 +176,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1070819700
+              "duration": 1183513799
             }
           },
           {
@@ -189,7 +189,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 892798899
+              "duration": 923292400
             }
           },
           {
@@ -197,7 +197,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 73224799
+              "duration": 66336000
             }
           }
         ],
@@ -225,7 +225,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 303836000
+              "duration": 397076699
             }
           },
           {
@@ -238,7 +238,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 954581400
+              "duration": 4350934299
             }
           },
           {
@@ -250,8 +250,9 @@
               "location": "steps\\contacts.steps.js:92"
             },
             "result": {
-              "status": "passed",
-              "duration": 2605649900
+              "status": "failed",
+              "duration": 5004938399,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (D:\\projects\\testautomation_hu\\homework_4\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
             }
           },
           {
@@ -263,8 +264,8 @@
               "location": "steps\\contacts.steps.js:106"
             },
             "result": {
-              "status": "passed",
-              "duration": 12465700
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -272,7 +273,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 344780499
+              "duration": 2702147300
             }
           }
         ],
@@ -311,7 +312,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 309044099
+              "duration": 375683100
             }
           },
           {
@@ -323,8 +324,9 @@
               "location": "steps\\login.steps.js:6"
             },
             "result": {
-              "status": "passed",
-              "duration": 1265095300
+              "status": "failed",
+              "duration": 5007085300,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (D:\\projects\\testautomation_hu\\homework_4\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
             }
           },
           {
@@ -336,8 +338,8 @@
               "location": "steps\\login.steps.js:10"
             },
             "result": {
-              "status": "passed",
-              "duration": 84126800
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -349,8 +351,8 @@
               "location": "steps\\login.steps.js:22"
             },
             "result": {
-              "status": "passed",
-              "duration": 856567000
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -358,7 +360,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 62197099
+              "duration": 2504313400
             }
           }
         ],
@@ -386,7 +388,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 307094199
+              "duration": 359627700
             }
           },
           {
@@ -398,8 +400,9 @@
               "location": "steps\\login.steps.js:6"
             },
             "result": {
-              "status": "passed",
-              "duration": 817294399
+              "status": "failed",
+              "duration": 5001918799,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (D:\\projects\\testautomation_hu\\homework_4\\node_modules\\@cucumber\\cucumber\\lib\\time.js:64:20)\n    at listOnTimeout (node:internal/timers:588:17)\n    at process.processTimers (node:internal/timers:523:7)"
             }
           },
           {
@@ -411,8 +414,8 @@
               "location": "steps\\login.steps.js:16"
             },
             "result": {
-              "status": "passed",
-              "duration": 89337399
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -424,8 +427,8 @@
               "location": "steps\\login.steps.js:28"
             },
             "result": {
-              "status": "passed",
-              "duration": 209226599
+              "status": "skipped",
+              "duration": 0
             }
           },
           {
@@ -433,7 +436,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 83014900
+              "duration": 2374956299
             }
           }
         ],
@@ -461,7 +464,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 286662899
+              "duration": 385465499
             }
           },
           {
@@ -474,7 +477,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 847976400
+              "duration": 1048421900
             }
           },
           {
@@ -487,7 +490,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 88359499
+              "duration": 82154099
             }
           },
           {
@@ -500,7 +503,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 201921500
+              "duration": 219067199
             }
           },
           {
@@ -508,7 +511,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 80126700
+              "duration": 63415800
             }
           }
         ],

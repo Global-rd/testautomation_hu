@@ -106,5 +106,6 @@ When('The user delete the contact with email', async function () {
 Then('The user should not see that contact anymore', async function () {
     const rows = await this.page.locator('tr.contactTableBodyRow').allTextContents();
     const exists = rows.some(text => text.includes(testContacts.contactOne.email));
+    console.log('All table rows:', rows);
     assert.strictEqual(exists, false, `The contact with email ${testContacts.contactOne.email} is still visible.`);
 });
