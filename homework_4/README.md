@@ -50,13 +50,14 @@ Test Data Management
 - Dynamic contact data is generated using Faker via _fixtures/contactData.js_
 
 ### Content
-Login Functionality
-Successful login with valid credentials
-Failed login with incorrect password
-Data-driven login test with multiple invalid combinations
+- Login Functionality
+-- Successful login with valid credentials
+-- Failed login with incorrect password
+-- Data-driven login test with multiple invalid combinations (via Scenario Outline)
 
-Contact Management
-Add a new contact (via Data Table)
-Edit an existing contact
-Delete a contact
-Use of Faker for dynamically generated test data
+- Contact Management
+-- Add a new contact (via Data Table)
+-- Edit an existing contact
+-- Delete a contact
+
+-- Ability to use  Faker for dynamically generated test data
