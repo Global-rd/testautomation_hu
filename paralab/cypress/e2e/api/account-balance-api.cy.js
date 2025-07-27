@@ -16,10 +16,10 @@ describe("API – számlaegyenleg ellenőrzése", () => {
   });
 
   it("Számlaegyenleg 3000$ legyen API-n keresztül", () => {
-    // 🔐 Bejelentkezés közvetlen requesttel
+    // Bejelentkezés közvetlen requesttel
     cy.loginViaRequest(username, password);
 
-    // 🔍 API hívás – számlaadatok lekérése
+    // API hívás – számlaadatok lekérése
     cy.request({
       method: "GET",
       url: `/parabank/services/bank/accounts/${accountId}`,

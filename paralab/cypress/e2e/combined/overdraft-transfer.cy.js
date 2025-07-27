@@ -46,13 +46,13 @@ it("Overdraft teszt – nagyobb összeg utalása a számlánál, stabil kivárá
     .then((text) => {
       const cleaned = text.replace(/[^0-9.]/g, "");
       balanceAmount = parseFloat(cleaned);
-      cy.log(`💰 Kezdeti egyenleg: $${balanceAmount}`);
+      cy.log(`Kezdeti egyenleg: $${balanceAmount}`);
     });
 
   // Transfer Funds – nagyobb összeg utalása
   cy.then(() => {
     const transferAmount = balanceAmount + 100;
-    cy.log(`📤 Átutalni kívánt összeg: $${transferAmount}`);
+    cy.log(`Átutalni kívánt összeg: $${transferAmount}`);
 
     cy.contains("Transfer Funds").click();
     cy.get("#amount").clear().type(transferAmount.toString());
@@ -95,7 +95,7 @@ it("Overdraft teszt – nagyobb összeg utalása a számlánál, stabil kivárá
             .then((text) => {
                 const cleaned = text.replace(/[^0-9.-]/g, "");
                 const finalBalance = parseFloat(cleaned);
-                cy.log(`📉 Új egyenleg: $${finalBalance}`);
+                cy.log(`Új egyenleg: $${finalBalance}`);
                 expect(finalBalance).to.be.lessThan(0);
              });
       });
