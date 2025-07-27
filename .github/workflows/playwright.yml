@@ -2,7 +2,7 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [ balint_gondar_20 ]
+    branches: [ "balint_gondar_20" ]
 
 jobs:
   test:
