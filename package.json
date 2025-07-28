@@ -1,0 +1,18 @@
+{
+  "name": "thinking-tester-contact-list-bdd",
+  "version": "1.0.0",
+  "description": "Playwright + Cucumber BDD tesztkeretrendszer a Thinking Tester Contact List webalkalmazáshoz",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js",
+    "cucumber": "cucumber-js",
+    "playwright-report": "npx playwright show-report"
+  },
+  "author": "Anita",
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.0",
+    "@playwright/test": "^1.54.1",
+    "faker": "^5.5.3"
+  }
+}
