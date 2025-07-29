@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-07-29T14:37:15.944Z",
+    "end": "2025-07-29T14:37:31.055Z",
+    "duration": 15111,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d935f144-72ce-4f1e-b421-4a652cc8d45c",
+      "title": "",
+      "fullFile": "cypress/e2e/loan.spec.js",
+      "file": "cypress/e2e/loan.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9d1e56af-5031-4707-9169-da339417d4f3",
+          "title": "Loan request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "allows loan request with only Loan Amount field filled",
+              "fullTitle": "Loan request allows loan request with only Loan Amount field filled",
+              "timedOut": null,
+              "duration": 7885,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"Request Loan\").click();\ncy.get(\"#amount\").type(\"1000\");\ncy.get(\"#downPayment\").clear(); // leaving blank on purpose\ncy.get('input[value=\"Apply Now\"]').click();\n//API Status code check\ncy.wait(\"@loan\").its(\"response.statusCode\").should(\"eq\", 200); // will fail because of \"An internal error has occurred and has been logged.\"\n//UI error message check\ncy.contains(/loan application result/i).should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/loan.spec.js:15:48)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "66de131c-1c7a-4608-a674-1d38d68d0055",
+              "parentUUID": "9d1e56af-5031-4707-9169-da339417d4f3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "allows loan request with only Down Payment field filled",
+              "fullTitle": "Loan request allows loan request with only Down Payment field filled",
+              "timedOut": null,
+              "duration": 7188,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"Request Loan\").click();\ncy.get(\"#amount\").clear(); // leaving blank on purpose\ncy.get(\"#downPayment\").type(\"1000\");\ncy.get('input[value=\"Apply Now\"]').click();\n//API Status code check\ncy.wait(\"@loan\").its(\"response.statusCode\").should(\"eq\", 200); // will fail because of \"An internal error has occurred and has been logged.\"\n//UI error message check\ncy.contains(/Congratulations, your loan has been approved./i).should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/loan.spec.js:26:48)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "45d36814-5cdd-4817-a3f8-217a993f45ba",
+              "parentUUID": "9d1e56af-5031-4707-9169-da339417d4f3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "66de131c-1c7a-4608-a674-1d38d68d0055",
+            "45d36814-5cdd-4817-a3f8-217a993f45ba"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15073,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

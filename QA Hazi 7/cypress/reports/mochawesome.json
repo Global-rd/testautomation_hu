@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-07-29T14:37:06.148Z",
+    "end": "2025-07-29T14:37:15.170Z",
+    "duration": 9022,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ac0528e1-2f1d-490e-8181-0a4e81c2c43f",
+      "title": "",
+      "fullFile": "cypress/e2e/accounts.spec.js",
+      "file": "cypress/e2e/accounts.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "96fa75e8-5f9a-4aab-914f-a90ff84968a2",
+          "title": "Account creation flows",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "opens a new CHECKING account with a $3000 starting balance",
+              "fullTitle": "Account creation flows opens a new CHECKING account with a $3000 starting balance",
+              "timedOut": null,
+              "duration": 4529,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"/parabank/services_proxy/bank/createAccount*\").as(\"createAccount\");\ncy.contains(\"Open New Account\").click();\ncy.get(\"#type\").select(\"CHECKING\");\ncy.get(\"#fromAccountId\").find(\"option\").first().then($opt => {\n  // Keep the originating account id for later assertions\n  cy.wrap($opt.val()).as(\"baseAccount\");\n});\ncy.get('input[value=\"Open New Account\"]').click();\ncy.wait(\"@createAccount\").its(\"response\").then(({\n  statusCode,\n  body\n}) => {\n  expect(statusCode).to.eq(200);\n  expect(body.id).to.exist;\n  expect(body.balance).to.eq(3000);\n  cy.wrap(body.id).as(\"newAccountId\");\n});\n// UI verification -- will fail\ncy.contains(\"Accounts Overview\").click();\ncy.get(\"@newAccountId\").then(id => {\n  cy.contains(id).parent().should(\"contain\", \"$3000\");\n});\n// API verification\ncy.get(\"@newAccountId\").then(id => {\n  cy.getAccount(id).its(\"body.balance\").should(\"eq\", 3000);\n});",
+              "err": {
+                "message": "AssertionError: expected 0 to equal 3000",
+                "estack": "AssertionError: expected 0 to equal 3000\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/accounts.spec.js:30:32)\n    at getRet (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:121211:21)",
+                "diff": null
+              },
+              "uuid": "1899d774-b77d-4af6-8f0f-eb881468b942",
+              "parentUUID": "96fa75e8-5f9a-4aab-914f-a90ff84968a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "opens a new SAVINGS account and appears on both layers",
+              "fullTitle": "Account creation flows opens a new SAVINGS account and appears on both layers",
+              "timedOut": null,
+              "duration": 4432,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"/parabank/services_proxy/bank/createAccount*\").as(\"createSavings\");\ncy.contains(\"Open New Account\").click();\ncy.get(\"#type\").should(\"be.visible\");\ncy.get(\"#type option\").should(\"have.length.greaterThan\", 1); // <-- dropdown is ready\ncy.get(\"#type\").select(\"SAVINGS\");\ncy.get(\"#fromAccountId\").find(\"option\").first().then($opt => {\n  // Keep the originating account id for later assertions\n  cy.wrap($opt.val()).as(\"saveAccount\");\n});\n// now click submit\ncy.get('input[value=\"Open New Account\"]').click();\n// API check\ncy.wait(\"@createSavings\").its(\"response.body\").then(body => {\n  expect(body.type).to.eq(\"SAVINGS\");\n  cy.wrap(body.id).as(\"savingsId\");\n});\n// UI check\ncy.contains(\"Accounts Overview\").click();\ncy.get(\"@savingsId\").then(id => {\n  cy.contains(id).parent().should(\"exist\");\n});",
+              "err": {},
+              "uuid": "539de46d-a7c7-4b7d-9b14-44c0cc7b9527",
+              "parentUUID": "96fa75e8-5f9a-4aab-914f-a90ff84968a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "539de46d-a7c7-4b7d-9b14-44c0cc7b9527"
+          ],
+          "failures": [
+            "1899d774-b77d-4af6-8f0f-eb881468b942"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8961,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

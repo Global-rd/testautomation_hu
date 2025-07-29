@@ -1,0 +1,357 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 7,
+    "passes": 2,
+    "pending": 0,
+    "failures": 5,
+    "testsRegistered": 7,
+    "passPercent": 28.571428571428573,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2025-07-29T14:37:06.148Z",
+    "end": "2025-07-29T14:37:42.978Z",
+    "duration": 36830
+  },
+  "results": [
+    {
+      "uuid": "d935f144-72ce-4f1e-b421-4a652cc8d45c",
+      "title": "",
+      "fullFile": "cypress/e2e/loan.spec.js",
+      "file": "cypress/e2e/loan.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9d1e56af-5031-4707-9169-da339417d4f3",
+          "title": "Loan request",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "allows loan request with only Loan Amount field filled",
+              "fullTitle": "Loan request allows loan request with only Loan Amount field filled",
+              "timedOut": null,
+              "duration": 7885,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"Request Loan\").click();\ncy.get(\"#amount\").type(\"1000\");\ncy.get(\"#downPayment\").clear(); // leaving blank on purpose\ncy.get('input[value=\"Apply Now\"]').click();\n//API Status code check\ncy.wait(\"@loan\").its(\"response.statusCode\").should(\"eq\", 200); // will fail because of \"An internal error has occurred and has been logged.\"\n//UI error message check\ncy.contains(/loan application result/i).should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/loan.spec.js:15:48)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "66de131c-1c7a-4608-a674-1d38d68d0055",
+              "parentUUID": "9d1e56af-5031-4707-9169-da339417d4f3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "allows loan request with only Down Payment field filled",
+              "fullTitle": "Loan request allows loan request with only Down Payment field filled",
+              "timedOut": null,
+              "duration": 7188,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains(\"Request Loan\").click();\ncy.get(\"#amount\").clear(); // leaving blank on purpose\ncy.get(\"#downPayment\").type(\"1000\");\ncy.get('input[value=\"Apply Now\"]').click();\n//API Status code check\ncy.wait(\"@loan\").its(\"response.statusCode\").should(\"eq\", 200); // will fail because of \"An internal error has occurred and has been logged.\"\n//UI error message check\ncy.contains(/Congratulations, your loan has been approved./i).should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 400 to equal 200\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/loan.spec.js:26:48)",
+                "diff": "- 400\n+ 200\n"
+              },
+              "uuid": "45d36814-5cdd-4817-a3f8-217a993f45ba",
+              "parentUUID": "9d1e56af-5031-4707-9169-da339417d4f3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "66de131c-1c7a-4608-a674-1d38d68d0055",
+            "45d36814-5cdd-4817-a3f8-217a993f45ba"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 15073,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "59aa4f6f-7d05-4c73-b933-465220b8040f",
+      "title": "",
+      "fullFile": "cypress/e2e/profile.spec.js",
+      "file": "cypress/e2e/profile.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ee457711-4467-465d-a105-aedcc552e761",
+          "title": "Profile update via API only",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "updates contact info through API and reflects on UI",
+              "fullTitle": "Profile update via API only updates contact info through API and reflects on UI",
+              "timedOut": null,
+              "duration": 2755,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updated = {\n  firstName: \"John\",\n  lastName: \"Doe\",\n  street: \"1 Infinite Loop\",\n  city: \"Cupertino\",\n  state: \"CA\",\n  zipCode: \"95014\",\n  phoneNumber: \"555-0000\",\n  ssn: \"622-11-9999\",\n  username: Cypress.env(\"username\"),\n  password: Cypress.env(\"password\")\n};\ncy.request({\n  method: \"POST\",\n  url: \"/parabank/services_proxy/bank/customers/update/12656\",\n  form: true,\n  body: updated\n}).then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body).to.include(\"Successfully updated\");\n});\ncy.visit(\"/\");\ncy.contains(\"Update Contact Info\").click();\ncy.get('input[name=\"customer.lastName\"]', {\n  timeout: 2000\n}).should(\"be.visible\").and(\"have.value\", updated.lastName);\ncy.get('input[name=\"customer.phoneNumber\"]').should(\"have.value\", updated.phoneNumber);",
+              "err": {},
+              "uuid": "86b6425c-0fa2-45ef-8b53-bc8d9a1d4897",
+              "parentUUID": "ee457711-4467-465d-a105-aedcc552e761",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "86b6425c-0fa2-45ef-8b53-bc8d9a1d4897"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2755,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "36df4e10-f52a-4fae-833c-ee367d67242b",
+      "title": "",
+      "fullFile": "cypress/e2e/transfer.spec.js",
+      "file": "cypress/e2e/transfer.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cb8d7504-7e0c-4d50-a9e9-b818d6fc8b2c",
+          "title": "Transfer Funds scenarios",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "allows overdraft and shows negative balance",
+              "fullTitle": "Transfer Funds scenarios allows overdraft and shows negative balance",
+              "timedOut": null,
+              "duration": 3896,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"/parabank/services_proxy/bank/transfer*\").as(\"transfer\");\ncy.contains(\"Transfer Funds\").click();\n// Capture first two different account IDs\ncy.get(\"#fromAccountId\").find(\"option\").then($opts => {\n  const from = $opts.eq(0).val();\n  const to = $opts.eq(1).val();\n  cy.get(\"#fromAccountId\").should(\"be.visible\");\n  cy.get(\"#fromAccountId option\").should(\"have.length.greaterThan\", 1); // <-- dropdown is ready\n  cy.get(\"#fromAccountId\").select(from);\n  cy.get(\"#toAccountId\").select(to);\n  cy.wrap({\n    from,\n    to\n  }).as(\"acc\");\n});\ncy.get('input[id=\"amount\"]').type(\"4000\");\ncy.get('input[value=\"Transfer\"]').click();\n// Will fail -- API response for transfer does not contain the new balance\ncy.wait(\"@transfer\").its(\"response.body\").then(body => {\n  expect(body.newBalance).to.be.lessThan(0);\n});\n// UI should now display a negative balance on the source account\ncy.contains(\"Accounts Overview\").click();\ncy.get(\"@acc\").then(({\n  from\n}) => {\n  cy.contains(from).closest(\"tr\").find(\"td\").eq(1) // adjust this index if needed\n  .should(\"contain.text\", \"-$\");\n});",
+              "err": {
+                "message": "AssertionError: expected undefined to be a number or a date",
+                "estack": "AssertionError: expected undefined to be a number or a date\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/transfer.spec.js:35:8)\n    at getRet (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:121211:21)\n    at wrapped (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:141532:19)",
+                "diff": null
+              },
+              "uuid": "bcb4c4f3-7d93-4ea5-8dae-e7a4bce87a22",
+              "parentUUID": "cb8d7504-7e0c-4d50-a9e9-b818d6fc8b2c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "blocks transfer where source and destination are the same",
+              "fullTitle": "Transfer Funds scenarios blocks transfer where source and destination are the same",
+              "timedOut": null,
+              "duration": 3750,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"/parabank/services_proxy/bank/transfer*\").as(\"transfer\");\ncy.contains(\"Transfer Funds\").click();\ncy.get(\"#fromAccountId\").find(\"option\").first().then($opt => {\n  const id = $opt.val();\n  cy.get(\"#fromAccountId\").select(id);\n  cy.get(\"#toAccountId\").select(id);\n});\ncy.get('input[id=\"amount\"]').type(\"50\");\ncy.get('input[value=\"Transfer\"]').click();\n// API error --- will fail because the transfer is not allowed\ncy.wait(\"@transfer\").its(\"response\").then(({\n  statusCode\n}) => {\n  expect(statusCode).to.eq(400);\n});\n// Expected validation error in UI --- will fail because the transfer is not allowed\ncy.contains(/cannot transfer to the same account/i).should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 400",
+                "estack": "AssertionError: expected 200 to equal 400\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/transfer.spec.js:70:30)\n    at getRet (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:121211:21)",
+                "diff": "- 200\n+ 400\n"
+              },
+              "uuid": "cc3a65ea-b578-4849-af02-ee90d50ebb37",
+              "parentUUID": "cb8d7504-7e0c-4d50-a9e9-b818d6fc8b2c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bcb4c4f3-7d93-4ea5-8dae-e7a4bce87a22",
+            "cc3a65ea-b578-4849-af02-ee90d50ebb37"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7646,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "ac0528e1-2f1d-490e-8181-0a4e81c2c43f",
+      "title": "",
+      "fullFile": "cypress/e2e/accounts.spec.js",
+      "file": "cypress/e2e/accounts.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "96fa75e8-5f9a-4aab-914f-a90ff84968a2",
+          "title": "Account creation flows",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "opens a new CHECKING account with a $3000 starting balance",
+              "fullTitle": "Account creation flows opens a new CHECKING account with a $3000 starting balance",
+              "timedOut": null,
+              "duration": 4529,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"/parabank/services_proxy/bank/createAccount*\").as(\"createAccount\");\ncy.contains(\"Open New Account\").click();\ncy.get(\"#type\").select(\"CHECKING\");\ncy.get(\"#fromAccountId\").find(\"option\").first().then($opt => {\n  // Keep the originating account id for later assertions\n  cy.wrap($opt.val()).as(\"baseAccount\");\n});\ncy.get('input[value=\"Open New Account\"]').click();\ncy.wait(\"@createAccount\").its(\"response\").then(({\n  statusCode,\n  body\n}) => {\n  expect(statusCode).to.eq(200);\n  expect(body.id).to.exist;\n  expect(body.balance).to.eq(3000);\n  cy.wrap(body.id).as(\"newAccountId\");\n});\n// UI verification -- will fail\ncy.contains(\"Accounts Overview\").click();\ncy.get(\"@newAccountId\").then(id => {\n  cy.contains(id).parent().should(\"contain\", \"$3000\");\n});\n// API verification\ncy.get(\"@newAccountId\").then(id => {\n  cy.getAccount(id).its(\"body.balance\").should(\"eq\", 3000);\n});",
+              "err": {
+                "message": "AssertionError: expected 0 to equal 3000",
+                "estack": "AssertionError: expected 0 to equal 3000\n    at Context.eval (webpack://qa-hazi-7/./cypress/e2e/accounts.spec.js:30:32)\n    at getRet (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:121211:21)",
+                "diff": null
+              },
+              "uuid": "1899d774-b77d-4af6-8f0f-eb881468b942",
+              "parentUUID": "96fa75e8-5f9a-4aab-914f-a90ff84968a2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "opens a new SAVINGS account and appears on both layers",
+              "fullTitle": "Account creation flows opens a new SAVINGS account and appears on both layers",
+              "timedOut": null,
+              "duration": 4432,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept(\"POST\", \"/parabank/services_proxy/bank/createAccount*\").as(\"createSavings\");\ncy.contains(\"Open New Account\").click();\ncy.get(\"#type\").should(\"be.visible\");\ncy.get(\"#type option\").should(\"have.length.greaterThan\", 1); // <-- dropdown is ready\ncy.get(\"#type\").select(\"SAVINGS\");\ncy.get(\"#fromAccountId\").find(\"option\").first().then($opt => {\n  // Keep the originating account id for later assertions\n  cy.wrap($opt.val()).as(\"saveAccount\");\n});\n// now click submit\ncy.get('input[value=\"Open New Account\"]').click();\n// API check\ncy.wait(\"@createSavings\").its(\"response.body\").then(body => {\n  expect(body.type).to.eq(\"SAVINGS\");\n  cy.wrap(body.id).as(\"savingsId\");\n});\n// UI check\ncy.contains(\"Accounts Overview\").click();\ncy.get(\"@savingsId\").then(id => {\n  cy.contains(id).parent().should(\"exist\");\n});",
+              "err": {},
+              "uuid": "539de46d-a7c7-4b7d-9b14-44c0cc7b9527",
+              "parentUUID": "96fa75e8-5f9a-4aab-914f-a90ff84968a2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "539de46d-a7c7-4b7d-9b14-44c0cc7b9527"
+          ],
+          "failures": [
+            "1899d774-b77d-4af6-8f0f-eb881468b942"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8961,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

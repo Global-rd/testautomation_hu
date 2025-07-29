@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-29T14:37:31.786Z",
+    "end": "2025-07-29T14:37:34.568Z",
+    "duration": 2782,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "59aa4f6f-7d05-4c73-b933-465220b8040f",
+      "title": "",
+      "fullFile": "cypress/e2e/profile.spec.js",
+      "file": "cypress/e2e/profile.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ee457711-4467-465d-a105-aedcc552e761",
+          "title": "Profile update via API only",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "updates contact info through API and reflects on UI",
+              "fullTitle": "Profile update via API only updates contact info through API and reflects on UI",
+              "timedOut": null,
+              "duration": 2755,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updated = {\n  firstName: \"John\",\n  lastName: \"Doe\",\n  street: \"1 Infinite Loop\",\n  city: \"Cupertino\",\n  state: \"CA\",\n  zipCode: \"95014\",\n  phoneNumber: \"555-0000\",\n  ssn: \"622-11-9999\",\n  username: Cypress.env(\"username\"),\n  password: Cypress.env(\"password\")\n};\ncy.request({\n  method: \"POST\",\n  url: \"/parabank/services_proxy/bank/customers/update/12656\",\n  form: true,\n  body: updated\n}).then(res => {\n  expect(res.status).to.eq(200);\n  expect(res.body).to.include(\"Successfully updated\");\n});\ncy.visit(\"/\");\ncy.contains(\"Update Contact Info\").click();\ncy.get('input[name=\"customer.lastName\"]', {\n  timeout: 2000\n}).should(\"be.visible\").and(\"have.value\", updated.lastName);\ncy.get('input[name=\"customer.phoneNumber\"]').should(\"have.value\", updated.phoneNumber);",
+              "err": {},
+              "uuid": "86b6425c-0fa2-45ef-8b53-bc8d9a1d4897",
+              "parentUUID": "ee457711-4467-465d-a105-aedcc552e761",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "86b6425c-0fa2-45ef-8b53-bc8d9a1d4897"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2755,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
