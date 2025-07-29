@@ -1,0 +1,77 @@
+name: Matrix Strategy Tests
+
+on:
+  push:
+    branches: [ balint_gondar_20 ]
+  pull_request:
+    branches: [ balint_gondar_20 ]
+
+jobs:
+  matrix-test:
+    name: Test on ${{ matrix.node-version }} with ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false  # Don't stop other matrix jobs if one fails
+      matrix:
+        node-version: [16, 18, 20]
+        browser: [chrome, firefox, safari]
+        include:
+          # Include specific combinations
+          - node-version: 18
+            browser: chrome
+            test-type: smoke
+          - node-version: 20
+            browser: firefox
+            test-type: regression
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Cache node modules
+      uses: actions/cache@v3
+      with:
+        path: balint_gondar_20/node_modules
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('balint_gondar_20/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-${{ matrix.node-version }}-
+    
+    - name: Install dependencies
+      run: |
+        cd balint_gondar_20
+        npm ci
+    
+    - name: Install specific browser
+      run: |
+        cd balint_gondar_20
+        if [ "${{ matrix.browser }}" = "chrome" ]; then
+          npx playwright install chromium
+        elif [ "${{ matrix.browser }}" = "firefox" ]; then
+          npx playwright install firefox
+        elif [ "${{ matrix.browser }}" = "safari" ]; then
+          npx playwright install webkit
+        fi
+    
+    - name: Run tests
+      run: |
+        cd balint_gondar_20
+        if [ "${{ matrix.browser }}" = "chrome" ]; then
+          npx playwright test --project=chromium
+        elif [ "${{ matrix.browser }}" = "firefox" ]; then
+          npx playwright test --project=firefox
+        elif [ "${{ matrix.browser }}" = "safari" ]; then
+          npx playwright test --project=webkit
+        fi
+    
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: matrix-results-${{ matrix.node-version }}-${{ matrix.browser }}
+        path: balint_gondar_20/test-results/
+        retention-days: 30 

@@ -96,7 +96,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: manual-test-results-${{ github.event.inputs.browser }}-${{ github.event.inputs.test_tags }}
-        path: balint_gondar_20/test-results/
+        path: |
+          balint_gondar_20/test-results/
+          balint_gondar_20/playwright-report/
         retention-days: 30
     
     - name: Comment on workflow
