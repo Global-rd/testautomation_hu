@@ -1,7 +1,7 @@
 // playwright.config.js
 // Playwright config with global test data
 
-const { defineConfig } = require('@playwright/test');
+const { defineConfig, devices } = require('@playwright/test');
 
 const apiUrl = 'https://practice.expandtesting.com/webpark/calculate-cost';
 const testPayload = {
@@ -15,6 +15,20 @@ module.exports = defineConfig({
         apiUrl,
         testPayload,
     },
+    projects: [
+        {
+            name: 'chromium',
+            use: { ...devices['Desktop Chrome'] },
+        },
+        {
+            name: 'firefox',
+            use: { ...devices['Desktop Firefox'] },
+        },
+        {
+            name: 'webkit',
+            use: { ...devices['Desktop Safari'] },
+        },
+    ],
 });
 
 module.exports.apiUrl = apiUrl;
