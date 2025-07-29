@@ -9,6 +9,7 @@ test.describe('Webpark Parking Calculator - API és UI integráció', () => {
         exitDate: '2025-08-22T16:11',
     };
 
+    @smoke
     test('API kalkuláció eredménye megegyezik a UI-on láthatóval', async ({ page, request }) => {
         // 1. API hívás
         const apiRes = await request.post(apiUrl, {
@@ -35,6 +36,7 @@ test.describe('Webpark Parking Calculator - API és UI integráció', () => {
         expect(resultText.trim()).toBe(`${apiBody.cost}.00€`);
     });
 
+    @regression
     test('UI-n olvasott day rate alapján API response cost ellenőrzése több napra', async ({ page, context }) => {
         await page.goto('https://practice.expandtesting.com/webpark');
         // 1. Kiolvassuk a Valet Parking day rate-et a UI-ról
