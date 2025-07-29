@@ -29,6 +29,11 @@ module.exports = defineConfig({
             use: { ...devices['Desktop Safari'] },
         },
     ],
+    outputDir: 'test-results',
+    reporter: [
+        ['html', { outputFolder: 'playwright-report' }],
+        ['json', { outputFile: 'test-results/results.json' }],
+    ],
 });
 
 module.exports.apiUrl = apiUrl;
