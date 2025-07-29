@@ -1,10 +1,11 @@
 name: Parallel Browser Tests
 
 on:
-  push:
-    branches: [ balint_gondar_20 ]
-  pull_request:
-    branches: [ balint_gondar_20 ]
+  # push:
+  #   branches: [ balint_gondar_20 ]
+  # pull_request:
+  #   branches: [ balint_gondar_20 ]
+  workflow_dispatch
 
 jobs:
   test-chrome:
