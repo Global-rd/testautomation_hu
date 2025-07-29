@@ -65,19 +65,31 @@ jobs:
       if: github.event.inputs.browser == 'chrome' || github.event.inputs.browser == 'all'
       run: |
         cd balint_gondar_20
-        npx playwright test --project=chromium --grep "${{ github.event.inputs.test_tags }}" --headed=${{ github.event.inputs.headless }}
+        if [ "${{ github.event.inputs.headless }}" = "false" ]; then
+          npx playwright test --project=chromium --grep "${{ github.event.inputs.test_tags }}" --headed
+        else
+          npx playwright test --project=chromium --grep "${{ github.event.inputs.test_tags }}"
+        fi
     
     - name: Run Firefox tests
       if: github.event.inputs.browser == 'firefox' || github.event.inputs.browser == 'all'
       run: |
         cd balint_gondar_20
-        npx playwright test --project=firefox --grep "${{ github.event.inputs.test_tags }}" --headed=${{ github.event.inputs.headless }}
+        if [ "${{ github.event.inputs.headless }}" = "false" ]; then
+          npx playwright test --project=firefox --grep "${{ github.event.inputs.test_tags }}" --headed
+        else
+          npx playwright test --project=firefox --grep "${{ github.event.inputs.test_tags }}"
+        fi
     
     - name: Run Safari tests
       if: github.event.inputs.browser == 'safari' || github.event.inputs.browser == 'all'
       run: |
         cd balint_gondar_20
-        npx playwright test --project=webkit --grep "${{ github.event.inputs.test_tags }}" --headed=${{ github.event.inputs.headless }}
+        if [ "${{ github.event.inputs.headless }}" = "false" ]; then
+          npx playwright test --project=webkit --grep "${{ github.event.inputs.test_tags }}" --headed
+        else
+          npx playwright test --project=webkit --grep "${{ github.event.inputs.test_tags }}"
+        fi
     
     - name: Upload test results
       if: always()
