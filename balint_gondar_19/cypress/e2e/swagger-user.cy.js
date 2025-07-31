@@ -1,5 +1,5 @@
 describe('Swagger-backed User API tests', () => {
-    const apiBase = (Cypress.env('CYPRESS_BASE_URL'));
+    const apiBase = Cypress.env('CYPRESS_BASE_URL') + '/users'
 
     const validUser = {
         name: 'Cypress User',
