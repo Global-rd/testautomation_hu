@@ -1,5 +1,5 @@
 describe('GraphQL createUser mutation test', () => {
-    const apiBase = 'http://localhost:4000/graphql';
+    const apiBase = Cypress.env('CYPRESS_GRAPHQL_URL') + '/graphql';
 
     const mutation = `
       mutation CreateUser($name: String!, $email: String!) {
