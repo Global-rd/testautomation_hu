@@ -1,0 +1,10 @@
+{
+  "firstName": "firstname",
+  "lastName": "lastname",
+  "street": "Módosított utca 10",
+  "city": "Teszt",
+  "state": "Pest",
+  "zipCode": "1234",
+  "phoneNumber": "+36707778899",
+  "ssn": "987-65-4321"
+}
