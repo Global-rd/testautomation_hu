@@ -1,4 +1,4 @@
-# Parabank – Cypress UI + API Test Automation
+# WORK IN PROGRESS - Parabank – Cypress UI + API Test Automation
 
 This project is a functional test automation suite for the [Parabank](https://parabank.parasoft.com/) demo application using **Cypress**. It combines **UI and API layer testing** based on defined business requirements.
 
