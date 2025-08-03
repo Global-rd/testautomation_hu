@@ -1,4 +1,12 @@
 {
-  "username": "itocska_tester",
-  "password": "tester"
+	"firstName": "Test",
+    "lastName": "User",
+    "address": "test",
+    "city": "test",
+    "state": "test",
+    "zip": "1234",
+    "phone": "123456789",
+    "ssn": "999999999",
+    "username": "itocska_tester",
+    "password": "tester"
 }

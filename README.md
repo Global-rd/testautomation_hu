@@ -2,7 +2,7 @@
 
 This project is a functional test automation suite for the [Parabank](https://parabank.parasoft.com/) demo application using **Cypress**. It combines **UI and API layer testing** based on defined business requirements.
 
-## 📌 Objective
+## Objective
 
 The goal of these tests is to validate the following features:
 - Opening a new account

@@ -2,12 +2,15 @@ describe('Account Opening – UI + API Validation', () => {
 	let accountId = null;
 
 	beforeEach(() => {
+		cy.initEnvironment();
 		cy.login();
 	});
 
 	it('should open a new account and verify $3000 balance in UI and API', () => {
 		cy.contains('Open New Account').click();
+		cy.contains('What type of Account would you like to open?').should('be.visible');
 		cy.get('#type').select('CHECKING');
+		cy.get('#fromAccountId').find('option') .should('have.length.greaterThan', 0);
 		cy.get('input[value="Open New Account"]').click();
 		cy.contains('Account Opened!').should('be.visible');
 
