@@ -1,4 +1,4 @@
-describe('Account Opening – UI + API Validation', () => {
+describe('Account Opening – UI + API', () => {
 	let accountId = null;
 
 	beforeEach(() => {
@@ -10,7 +10,7 @@ describe('Account Opening – UI + API Validation', () => {
 		cy.contains('Open New Account').click();
 		cy.contains('What type of Account would you like to open?').should('be.visible');
 		cy.get('#type').select('CHECKING');
-		cy.get('#fromAccountId').find('option') .should('have.length.greaterThan', 0);
+		cy.get('#fromAccountId').find('option').should('have.length.greaterThan', 0);
 		cy.get('input[value="Open New Account"]').click();
 		cy.contains('Account Opened!').should('be.visible');
 
@@ -21,11 +21,13 @@ describe('Account Opening – UI + API Validation', () => {
 			accountId = $el.text().trim();
 
 			cy.contains('Accounts Overview').click();
-			cy.contains(accountId)
-			.parent('tr')
-			.within(() => {
-				cy.get('td').eq(1).should('contain.text', '$3,000.00');
-			});
+      cy.get('#accountTable')
+        .find('tbody tr')
+        .contains('a', accountId)
+        .parents('tr')
+        .within(() => {
+          cy.get('td').eq(1).should('contain.text', '$3000.00');
+        });
 
 			cy.request({
 			method: 'GET',

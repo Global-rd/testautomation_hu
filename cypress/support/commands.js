@@ -79,6 +79,8 @@ Cypress.Commands.add('setDefaults', () => {
 		cy.get('input[value="'+def.accessMode+'"]').click();
 		cy.get('#initialBalance').clear();
 		cy.get('#initialBalance').type(def.initialBalance);
+		cy.get('#minimumBalance').clear();
+		cy.get('#minimumBalance').type(def.minimumBalance);
 
 		cy.get('input[value="Submit"]').click();
 		cy.contains('Settings saved successfully.').should('be.visible');

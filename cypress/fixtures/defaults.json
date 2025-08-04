@@ -1,4 +1,5 @@
 {
 	"accessMode": "restjson",
-    "initialBalance": "3100"
+    "initialBalance": "6000",
+    "minimumBalance": "3000"
 }
