@@ -1,3 +1,5 @@
+import { openNewAccount } from '../support/utils';
+
 describe('Open savings Account – UI + API', () => {
   let accountId = null;
 
@@ -7,18 +9,7 @@ describe('Open savings Account – UI + API', () => {
   });
 
   it('should open a SAVINGS account and verify it in UI and API', () => {
-    cy.contains('Open New Account').click();
-	cy.contains('What type of Account would you like to open?').should('be.visible');
-    cy.get('#type').select('SAVINGS');
-	cy.get('#fromAccountId').find('option').should('have.length.greaterThan', 0);
-    cy.get('input[value="Open New Account"]').click();
-	cy.contains('Account Opened!').should('be.visible');
-
-    cy.get('#newAccountId')
-      .should('be.visible')
-      .and('not.be.empty')
-      .then(($el) => {
-        accountId = $el.text().trim();
+    openNewAccount('SAVINGS').then((accountId) => {
 
         cy.contains('Accounts Overview').click();
 
