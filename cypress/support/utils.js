@@ -12,3 +12,8 @@ export function openNewAccount(type = 'CHECKING') {
         .invoke('text')
         .then((text) => text.trim());
 }
+
+export function getFirstAccountId() {
+    cy.contains('Accounts Overview').click();
+    return cy.get('#accountTable tbody tr').first().find('td a').invoke('text');
+}

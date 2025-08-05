@@ -36,7 +36,7 @@ Cypress.Commands.add('registerUser', () => {
 
 		cy.get('input[value="Register"]').click();
 		cy.contains('Your account was created successfully. You are now logged in.').should('be.visible');
-
+		
 		cy.contains('Log Out').click();
 	});
 });
