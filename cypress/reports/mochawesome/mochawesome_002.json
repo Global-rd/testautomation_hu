@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-06T17:10:49.891Z",
+    "end": "2025-08-06T17:11:07.831Z",
+    "duration": 17940,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0d620b98-fe54-46d4-a0f9-b4e503acdd23",
+      "title": "",
+      "fullFile": "cypress\\e2e\\loan_request.cy.js",
+      "file": "cypress\\e2e\\loan_request.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f1dc592f-78bd-40ff-ab40-966e547ffbd4",
+          "title": "Loan Request – Partial Required Field – UI + API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should allow loan request with Loan amount and Down Payment filled",
+              "fullTitle": "Loan Request – Partial Required Field – UI + API should allow loan request with Loan amount and Down Payment filled",
+              "timedOut": null,
+              "duration": 17832,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _utils.getFirstAccountId)().then(fromAccountId => {\n  (0, _utils.submitLoanRequest)({\n    loanAmount: 5000,\n    downPayment: 500,\n    fromAccountId\n  });\n  cy.contains('Loan Request Processed').should('be.visible');\n  cy.contains('Congratulations').should('be.visible');\n});",
+              "err": {},
+              "uuid": "0b0b6279-5da0-479f-8a7f-021b4f572ef3",
+              "parentUUID": "f1dc592f-78bd-40ff-ab40-966e547ffbd4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0b0b6279-5da0-479f-8a7f-021b4f572ef3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17832,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

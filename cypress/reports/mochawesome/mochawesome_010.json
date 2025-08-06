@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-06T17:18:11.907Z",
+    "end": "2025-08-06T17:18:24.421Z",
+    "duration": 12514,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a3ee582a-9bc4-49d0-9970-0330baf71ab5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\transfer_overdraft.cy.js",
+      "file": "cypress\\e2e\\transfer_overdraft.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "decd1c4d-4f93-4573-9c51-9195fbaae0c5",
+          "title": "Overdraft Transfer Funds – UI + API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should allow overdraft transfer and reflect negative balance in UI and API",
+              "fullTitle": "Overdraft Transfer Funds – UI + API should allow overdraft transfer and reflect negative balance in UI and API",
+              "timedOut": null,
+              "duration": 12471,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _utils.getFirstAccountId)().then(fromId => {\n  fromAccountId = fromId;\n  (0, _utils.openNewAccount)('CHECKING').then(toId => {\n    toAccountId = toId;\n    cy.contains('Transfer Funds').click();\n    cy.url().should('include', '/parabank/transfer.htm');\n    cy.get('#fromAccountId').find('option').should('contain', fromAccountId);\n    cy.get('#toAccountId').find('option').should('contain', toAccountId);\n    cy.get('#amount').type('4000');\n    cy.get('#fromAccountId').select(fromAccountId);\n    cy.get('#toAccountId').select(toAccountId);\n    cy.get('input[value=\"Transfer\"]').click();\n    cy.contains('Transfer Complete!').should('be.visible');\n    cy.contains('Accounts Overview').click();\n    cy.get('#accountTable').contains('a', fromAccountId).parents('tr').find('td').eq(1).invoke('text').then(balanceText => {\n      const balance = parseFloat(balanceText.replace('$', ''));\n      expect(balance).to.be.lessThan(0);\n    });\n    cy.request({\n      method: 'GET',\n      url: `/parabank/services/bank/accounts/${fromAccountId}`,\n      headers: {\n        accept: 'application/json'\n      }\n    }).then(res => {\n      expect(res.status).to.eq(200);\n      expect(res.body).to.have.property('id', Number(fromAccountId));\n      expect(res.body).to.have.property('balance');\n      expect(res.body.balance).to.be.lessThan(0);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "4308e90d-d71f-488b-a458-87a4be8eb663",
+              "parentUUID": "decd1c4d-4f93-4573-9c51-9195fbaae0c5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4308e90d-d71f-488b-a458-87a4be8eb663"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12471,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

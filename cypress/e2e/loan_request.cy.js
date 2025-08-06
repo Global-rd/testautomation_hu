@@ -23,7 +23,7 @@ describe('Loan Request – Partial Required Field – UI + API', () => {
         });
     });
 
-    it.only('should allow loan request with Loan amount and Down Payment filled', () => {
+    it('should allow loan request with Loan amount and Down Payment filled', () => {
         getFirstAccountId().then((fromAccountId) => {
             submitLoanRequest({ loanAmount: 5000, downPayment: 500, fromAccountId });
             cy.contains('Loan Request Processed').should('be.visible');

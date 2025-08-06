@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-06T17:16:59.259Z",
+    "end": "2025-08-06T17:17:11.627Z",
+    "duration": 12368,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "843aca71-68d1-4f58-bb55-8c7854541133",
+      "title": "",
+      "fullFile": "cypress\\e2e\\account_opening.cy.js",
+      "file": "cypress\\e2e\\account_opening.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5104538e-003c-4253-a1eb-6c210c6b7d01",
+          "title": "Account Opening – UI + API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should open a new account and verify $3000 balance in UI and API",
+              "fullTitle": "Account Opening – UI + API should open a new account and verify $3000 balance in UI and API",
+              "timedOut": null,
+              "duration": 12338,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "(0, _utils.openNewAccount)('CHECKING').then(accountId => {\n  cy.contains('Accounts Overview').click();\n  cy.get('#accountTable').find('tbody tr').contains('a', accountId).parents('tr').within(() => {\n    cy.get('td').eq(1).should('contain.text', '$3000.00');\n  });\n  cy.request({\n    method: 'GET',\n    url: `/parabank/services/bank/accounts/${accountId}`,\n    headers: {\n      accept: 'application/json'\n    }\n  }).then(res => {\n    expect(res.status).to.eq(200);\n    expect(res.body).to.have.property('balance', 3000);\n    expect(res.body).to.have.property('id', Number(accountId));\n  });\n});",
+              "err": {},
+              "uuid": "87b9e1c2-ead0-49ef-a44a-f6ce29d7dfa2",
+              "parentUUID": "5104538e-003c-4253-a1eb-6c210c6b7d01",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "87b9e1c2-ead0-49ef-a44a-f6ce29d7dfa2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12338,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

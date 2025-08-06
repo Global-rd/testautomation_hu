@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-08-06T17:18:26.124Z",
+    "end": "2025-08-06T17:18:40.918Z",
+    "duration": 14794,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7d9c41ba-1c11-4301-97dc-05a5f5d9ad82",
+      "title": "",
+      "fullFile": "cypress\\e2e\\transfer_same_account_negative.cy.js",
+      "file": "cypress\\e2e\\transfer_same_account_negative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "00abb0cb-383c-48c7-9b00-26c94133c2dc",
+          "title": "Transfer Funds - Same Account Validation – UI + API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should not allow transferring funds to the same account",
+              "fullTitle": "Transfer Funds - Same Account Validation – UI + API should not allow transferring funds to the same account",
+              "timedOut": null,
+              "duration": 14736,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "(0, _utils.getFirstAccountId)().then(accountId => {\n  cy.contains('Transfer Funds').click();\n  cy.url().should('include', '/parabank/transfer.htm');\n  cy.get('#fromAccountId').select(accountId);\n  cy.get('#toAccountId').select(accountId);\n  cy.get('#amount').type('100');\n  cy.intercept('POST', '**/transfer.htm').as('transferRequest');\n  cy.get('input[value=\"Transfer\"]').click();\n  cy.contains('Unknown error message at UI').should('be.visible'); // Nincs leirás és ismeretlen az elvárt eredmény\n  cy.wait('@transferRequest').then(interception => {\n    expect(interception.response.statusCode).to.not.eq(200); // Szintén ismeretlen az elvárt eredmény ezért nem lehet jelenleg részletesebb assertálást irni\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Unknown error message at UI' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Unknown error message at UI' but never did.\n    at Context.eval (webpack://testautomation_hu/./cypress/e2e/transfer_same_account_negative.cy.js:22:46)\n    at getRet (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120949:20)\n    at tryCatcher (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:120960:66)\n    at Context.then (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:121211:21)\n    at wrapped (https://parabank.parasoft.com/__cypress/runner/cypress_runner.js:141532:19)",
+                "diff": null
+              },
+              "uuid": "ade6567a-d4fe-4c70-96a4-bcb57120aa16",
+              "parentUUID": "00abb0cb-383c-48c7-9b00-26c94133c2dc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ade6567a-d4fe-4c70-96a4-bcb57120aa16"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14736,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

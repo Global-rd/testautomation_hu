@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-06T17:10:26.651Z",
+    "end": "2025-08-06T17:10:48.081Z",
+    "duration": 21430,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f03b83a0-fc99-4c6e-ac0f-6e01e21703a2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\edit_profile.cy.js",
+      "file": "cypress\\e2e\\edit_profile.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f6051d78-1cac-4d9d-99cf-88310b4f0823",
+          "title": "Update profile datas with API and verify on UI",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update profile with API and assert changes in UI",
+              "fullTitle": "Update profile datas with API and verify on UI should update profile with API and assert changes in UI",
+              "timedOut": null,
+              "duration": 21347,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('profileData').then(updatedProfileData => {\n  (0, _utils.getCustomerId)().then(customerId => {\n    cy.log(updatedProfileData);\n    (0, _utils.updateUserProfile)(customerId, updatedProfileData);\n    cy.contains('Update Contact Info').click();\n    cy.get('input[name=\"customer.firstName\"]').should('have.value', updatedProfileData.firstName);\n    cy.get('input[name=\"customer.lastName\"]').should('have.value', updatedProfileData.lastName);\n    cy.get('input[name=\"customer.address.street\"]').should('have.value', updatedProfileData.address);\n    cy.get('input[name=\"customer.address.city\"]').should('have.value', updatedProfileData.city);\n    cy.get('input[name=\"customer.address.state\"]').should('have.value', updatedProfileData.state);\n    cy.get('input[name=\"customer.address.zipCode\"]').should('have.value', updatedProfileData.zipCode);\n    cy.get('input[name=\"customer.phoneNumber\"]').should('have.value', updatedProfileData.phoneNumber);\n  });\n});",
+              "err": {},
+              "uuid": "5de27438-0787-4106-a935-ca01b759c271",
+              "parentUUID": "f6051d78-1cac-4d9d-99cf-88310b4f0823",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5de27438-0787-4106-a935-ca01b759c271"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21347,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
