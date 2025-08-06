@@ -92,3 +92,8 @@ Cypress.Commands.add('initEnvironment', () => {
 	cy.setDefaults();
 	cy.registerUser();
 });
+
+Cypress.Commands.add('getCustomerId', () => {
+  return cy.request('/parabank/services/bank/customers/current')
+    .its('body.id');
+});

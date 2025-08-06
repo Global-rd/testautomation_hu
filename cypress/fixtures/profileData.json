@@ -1,0 +1,9 @@
+{
+    "firstName": "Elek",
+    "lastName": "Teszt",
+    "address": "Teszt utca 1",
+    "city": "Budapest",
+    "state": "Pest",
+    "zipCode": "1138",
+    "phoneNumber": "06701234567"
+}
