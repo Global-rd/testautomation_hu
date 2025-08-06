@@ -19,7 +19,7 @@ describe('Transfer Funds - Same Account Validation – UI + API', () => {
 			cy.intercept('POST', '**/transfer.htm').as('transferRequest');
 			cy.get('input[value="Transfer"]').click();
 
-			cy.contains('Unknown error message').should('be.visible'); // Nincs leirás és ismeretlen az elvárt eredmény
+			cy.contains('Unknown error message at UI').should('be.visible'); // Nincs leirás és ismeretlen az elvárt eredmény
 
             cy.wait('@transferRequest').then((interception) => {
                 expect(interception.response.statusCode).to.not.eq(200); // Szintén ismeretlen az elvárt eredmény ezért nem lehet jelenleg részletesebb assertálást irni
