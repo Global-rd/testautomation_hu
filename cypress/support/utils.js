@@ -46,7 +46,7 @@ export function updateUserProfile(customerId, data) {
         qs: {
             firstName: data.firstName,
             lastName: data.lastName,
-            street: data.address, // FONTOS: itt 'address' helyett 'street' kell!
+            street: data.address,
             city: data.city,
             state: data.state,
             zipCode: data.zipCode,
@@ -67,6 +67,6 @@ export function getCustomerId() {
 
     return cy.wait('@getUserInfoRequest').then((interception) => {
         const customerId = interception.response.body.id;
-        return customerId; // Cypress automatikusan wrap-eli
+        return customerId;
     });
 }

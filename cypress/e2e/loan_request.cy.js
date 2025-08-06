@@ -1,7 +1,6 @@
 import { getFirstAccountId, submitLoanRequest } from '../support/utils';
 
 describe('Loan Request – Partial Required Field – UI + API', () => {
-    let fromAccountId;
 
     beforeEach(() => {
         cy.initEnvironment();
