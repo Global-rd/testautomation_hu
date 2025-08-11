@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
     e2e: {
-        baseUrl: 'https://parabank.parasoft.com/',
+        baseUrl: 'http://localhost:8080/parabank',
         defaultCommandTimeout: 8000,
     },
 });
