@@ -1,0 +1,25 @@
+{
+  "name": "qa-hazi-7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rimraf cypress/reports",
+    "test": "npm run clean:reports && cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=false,json=true",
+    "merge:json": "npx mochawesome-merge \"cypress/reports/mochawesome*.json\" --output cypress/reports/tmp.json",
+    "generate:html": "npx marge cypress/reports/tmp.json --reportDir cypress/reports --reportFilename mochawesome",
+    "report": "npm run merge:json && npm run generate:html ",
+    "open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^14.5.3",
+    "cypress-mochawesome-reporter": "^4.0.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
