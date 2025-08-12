@@ -1,16 +1,25 @@
 {
-  "name": "20",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.54.1",
-    "cypress": "^14.5.2"
-  }
+	"name": "canvas_calculator",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "playwright test",
+		"test:headed": "playwright test --headed",
+		"test:ui": "playwright test --ui",
+		"test:debug": "playwright test --debug",
+		"report": "playwright show-report"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"devDependencies": {
+		"@playwright/test": "^1.54.2",
+		"@types/node": "^24.2.0"
+	},
+	"dependencies": {
+		"dotenv": "^17.2.1",
+		"tesseract.js": "^6.0.1"
+	}
 }
