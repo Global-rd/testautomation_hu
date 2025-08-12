@@ -1,0 +1,22 @@
+{
+  "name": "temp2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:open": "cypress open",
+    "test:e2e": "cypress run --spec 'cypress/e2e/**/*.cy.ts'",
+    "test:component": "cypress run --component --spec 'cypress/component/**/*.cy.ts'",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "cypress": "^13.6.0",
+    "typescript": "^5.3.0"
+  }
+}
