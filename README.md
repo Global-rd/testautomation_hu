@@ -1,9 +1,26 @@
-# testautomation_hu
-## 19. alkalom
-    GraphQL - npm install: @apollo/server, express
-    In memory Rest mock install: express-openapi-validator, ymljs, express
-    Kafka: npm i kafkajs, express. 
-     install docker a host gepre, futtatni, majd 'docker compose up' a mappaban ahol a docker-compose megtalalhato. Ha fut a service dockerben, akkor inditani a kafka-mock.js-t (node kafka-mock.js parancs) 
+Canvas Calculator Test
 
-##22. alkalom - Github Actions
-    workflows/playwright.yml -> push trigger
+Ez a projekt a Playwright + TypeScript kombinációját használja egy canvas alapú online számológép automatizált tesztelésére OCR segítségével. A teszt paraméterezhető .env fájlból.
+
+Tesztelendő alkalmazás:
+
+Online Calculator – Full Screen
+
+Technológiák:
+
+Tesztkeretrendszer: Playwright
+
+Nyelv: TypeScript
+
+OCR: Tesseract.js
+
+Canvas interakció: Playwright mouse.click() koordinátákkal
+
+Telepítsd a függőségeket:
+
+npm install
+
+Tesztek futtatása:
+
+npx playwright test
+
