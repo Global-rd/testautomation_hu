@@ -1,9 +1,26 @@
-# testautomation_hu
-## 19. alkalom
-    GraphQL - npm install: @apollo/server, express
-    In memory Rest mock install: express-openapi-validator, ymljs, express
-    Kafka: npm i kafkajs, express. 
-     install docker a host gepre, futtatni, majd 'docker compose up' a mappaban ahol a docker-compose megtalalhato. Ha fut a service dockerben, akkor inditani a kafka-mock.js-t (node kafka-mock.js parancs) 
+Canvas Calculator automatizált teszt
 
-##22. alkalom - Github Actions
-    workflows/playwright.yml -> push trigger
+Futtatás
+
+1. Telepítsd a függőségeket:
+   ```
+   npm install
+   ```
+
+2. Állítsd be a bemeneti számokat a `cypress/fixtures/calculator.config.json` fájlban.
+
+3. Futtasd a tesztet:
+   ```
+   npx playwright test
+   ```
+
+Követelmények
+
+- Node.js
+- A projekt gyökerében legyen a `package.json`, a tesztfájlok, a `canvasCalculator.ts` és a config.
+
+Mit csinál a teszt?
+
+- Megnyitja a canvas-alapú számológépet.
+- A configban megadott két számot összeadja a felületen, gombnyomásokkal.
+- Az eredményt OCR-ral kiolvassa, és ellenőrzi, hogy helyes-e.
