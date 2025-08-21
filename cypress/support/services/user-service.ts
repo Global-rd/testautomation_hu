@@ -2,13 +2,7 @@ import {User} from "../model/User";
 
 export class UserService {
 
-    private user: User;
-
     private registerUrl: string = '/register.htm';
-
-    get currentUser(): User {
-        return this.user;
-    }
 
     async seedData(testUser: User): Promise<any> {
         cy.visit(this.registerUrl);
@@ -26,20 +20,4 @@ export class UserService {
         cy.get('#repeatedPassword').type(testUser.password);
         cy.get('[value="Register"]').click();
     }
-
-    // async cleanUpData(): Promise<void>{
-    //     const url = 'http://localhost:8080/parabank/db';
-    //
-    //     // Clean up
-    //     await fetch(url, {
-    //         method: 'POST',
-    //         body: 'action=CLEAN'
-    //     });
-    //
-    //     // Initialize
-    //     await fetch(url, {
-    //         method: 'POST',
-    //         body: 'action=INIT'
-    //     });
-    // }
 }

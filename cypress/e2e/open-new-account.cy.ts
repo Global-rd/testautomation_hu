@@ -7,7 +7,7 @@ import {NewAccountService} from "../support/services/new-account-service";
 import {AccountType} from "../support/model/Account";
 import {AccountDetailsPage} from "../pages/AccountDetailsPage";
 
-describe('Opening new account for user', () => {
+describe('Opening new accounts for user', () => {
 
     let loginPage: LoginPage;
     let overviewPage: OverviewPage;
@@ -64,7 +64,7 @@ describe('Opening new account for user', () => {
 
     it('OA003 - new account displays default balance', () => {
         cy.fixture('default.json').then(result => {
-            accountDetailsPage = new AccountDetailsPage(newCheckingAccountId);
+            accountDetailsPage = new AccountDetailsPage(newCheckingAccountId.toString());
             accountDetailsPage.openPage();
             accountDetailsPage.verifyAccountMatch(newCheckingAccountId, AccountType.CHECKING,
                 `${result.newAccountCurrency}${result.newAccountBalance.toFixed(2)}`);

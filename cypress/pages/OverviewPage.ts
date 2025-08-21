@@ -13,11 +13,10 @@ export class OverviewPage extends BasePage {
         super();
     }
 
-    public verifyAccountPresent(accountId: number, balance: number) {
+    public verifyAccountPresent(accountId: number, balance: string) {
         const accountIdTd = cy.get(`[href=\"activity.htm?id=${accountId.toString()}\"]`);
         accountIdTd.should('be.visible');
         accountIdTd.should('contain.text', accountId);
-
 
         accountIdTd
             .parents('tr')
@@ -25,8 +24,22 @@ export class OverviewPage extends BasePage {
             .eq(1)
             .invoke('text')
             .then((text) => {
-                expect(text.trim()).to.equal(balance.toString());
+                expect(text.trim()).to.equal(balance);
             });
+    }
+
+    public getBalanceForAccount(accountId: number): Cypress.Chainable<number>  {
+        const accountIdTd = cy.get(`[href=\"activity.htm?id=${accountId.toString()}\"]`);
+
+        return accountIdTd
+            .parents('tr')
+            .find('td')
+            .eq(1)
+            .invoke('text')
+            .then((text) => {
+                return parseInt(text.trim().replace(/[$,]/g, ''));
+            });
+
     }
 
     public async goToNewAccount(): Promise<void> {

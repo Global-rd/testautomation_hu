@@ -16,13 +16,13 @@ export class AccountDetailsPage extends BasePage {
         super();
     }
 
-    openPage() {
+    openPage(): void {
         cy.visit(this.baseUrl);
     }
 
-    verifyAccountMatch(accountId: number, accountType: AccountType, balance: number): void {
+    verifyAccountMatch(accountId: number, accountType: AccountType, balance: string): void {
         cy.get(this.selectors.accountId).should('contain.text', accountId);
         cy.get(this.selectors.accountType).should('contain.text', accountType.toString());
-        cy.get(this.selectors.balance).should('contain.text', balance.toString());
+        cy.get(this.selectors.balance).should('contain.text', balance);
     }
 }
