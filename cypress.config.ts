@@ -2,7 +2,7 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
     e2e: {
-        baseUrl: 'http://localhost:8080/parabank',
+        baseUrl: 'https://parabank.parasoft.com/parabank',
         defaultCommandTimeout: 8000,
         reporter: 'json',
         reporterOptions: {
