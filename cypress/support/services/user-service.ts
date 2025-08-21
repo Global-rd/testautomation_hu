@@ -20,4 +20,24 @@ export class UserService {
         cy.get('#repeatedPassword').type(testUser.password);
         cy.get('[value="Register"]').click();
     }
+
+    resetData(): void {
+        cy.request({
+            method: 'POST',
+            url: 'db.htm',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'action=CLEAN'
+        });
+
+        cy.request({
+            method: 'POST',
+            url: 'db.htm',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'action=INIT'
+        });
+    }
 }

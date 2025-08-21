@@ -33,8 +33,6 @@ describe('Opening new accounts for user', () => {
         newAccountPage = new NewAccountPage();
         newAccountService = new NewAccountService();
 
-        loginPage.login();
-
         loginPage.loggedInUserId.subscribe(userId => currentUserId = userId);
         loginPage.userDefaultAccountId.subscribe(accountId => defaultUserAccountId = accountId);
 
@@ -43,6 +41,10 @@ describe('Opening new accounts for user', () => {
 
     beforeEach(() => {
         loginPage.login();
+    })
+
+    after(() => {
+        userService.resetData();
     })
 
     it('OA001 - registered user is allowed to open a new checking account', () => {

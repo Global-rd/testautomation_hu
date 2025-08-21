@@ -30,8 +30,6 @@ describe('Transfer funds between owned accounts', () => {
         newAccountPage = new NewAccountPage();
         overviewPage = new OverviewPage();
 
-        loginPage.login();
-
         loginPage.loggedInUserId.subscribe(userId => currentUserId = userId);
         loginPage.userDefaultAccountId.subscribe(accountId => defaultUserAccountId = accountId);
 
@@ -47,6 +45,10 @@ describe('Transfer funds between owned accounts', () => {
 
         transferFundsPage = new TransferFundsPage();
         transferFundsService = new TransferFundsService();
+    })
+
+    after(() => {
+        userService.resetData();
     })
 
     it('TF001 - user can transfer funds from one account to another', () => {
