@@ -87,7 +87,7 @@ describe('Transfer funds between owned accounts', () => {
     it('TF004 - transferring funds fails when source and target account are the same', () => {
         transferFundsService.transfer(defaultUserAccountId, defaultUserAccountId, 123)
             .then(response => {
-                transferFundsService.verifyResponseStatus(response, 500);
+                transferFundsService.verifyResponseStatus(response, 422);
             })
     });
 
