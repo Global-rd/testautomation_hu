@@ -5,6 +5,7 @@
   },
   "devDependencies": {
     "cypress": "^14.5.3",
+    "node-fetch": "^3.3.2",
     "typescript": "^5.9.2"
   }
 }

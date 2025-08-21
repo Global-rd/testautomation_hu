@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es5", "dom"],
+    "target": "es2020",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "lib": ["es2020", "dom"],
     "types": ["cypress", "node"],
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "esModuleInterop": true
   },
   "include": [
     "**/*.ts"

@@ -4,19 +4,29 @@ export class NewAccountPage extends BasePage {
     baseUrl: string = '/openaccount.htm';
 
     selectors = {
-        openAccount: '[href="openaccount.htm"]',
-        transferFunds: '[href="transfer.htm"]',
-        requestLoan: '[href="requestloan.htm"]',
+        accountTypeDropDown: '#type',
+        openAccountButton: '[type="button"]',
+        openAccountResult: '#openAccountResult',
+        newAccountId: '#newAccountId',
     };
-    public async goToNewAccount(): Promise<void> {
-        cy.get(this.selectors.openAccount).click();
+
+    public async createNewAccount(type: string): Promise<void> {
+        cy.get(this.selectors.accountTypeDropDown).select(type);
+        cy.get(this.selectors.openAccountButton).click();
     }
 
-    public async goToTransferPage(): Promise<void> {
-        cy.get(this.selectors.transferFunds).click();
+    public async verifyOpenAccountResult(message: string): Promise<void> {
+        cy.get(this.selectors.openAccountResult).should('contain.text', message);
     }
 
-    public async goToRequestLoan(): Promise<void> {
-        cy.get(this.selectors.requestLoan).click();
+    public returnNewAccountNumber(): Cypress.Chainable<number> {
+        this.verifyOpenAccountResult('Account Opened!');
+
+        return cy.get(this.selectors.newAccountId)
+            .should('be.visible')
+            .invoke('text')
+            .then((text) => {
+                return parseInt(text.trim(), 10);
+            });
     }
 }

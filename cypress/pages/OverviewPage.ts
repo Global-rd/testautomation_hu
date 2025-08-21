@@ -13,6 +13,22 @@ export class OverviewPage extends BasePage {
         super();
     }
 
+    public verifyAccountPresent(accountId: number, balance: number) {
+        const accountIdTd = cy.get(`[href=\"activity.htm?id=${accountId.toString()}\"]`);
+        accountIdTd.should('be.visible');
+        accountIdTd.should('contain.text', accountId);
+
+
+        accountIdTd
+            .parents('tr')
+            .find('td')
+            .eq(1)
+            .invoke('text')
+            .then((text) => {
+                expect(text.trim()).to.equal(balance.toString());
+            });
+    }
+
     public async goToNewAccount(): Promise<void> {
         cy.get(this.selectors.openAccount).click();
     }

@@ -1,6 +1,7 @@
 import {User, UserType} from "../support/model/User";
 import Chainable = Cypress.Chainable;
 import {BasePage} from "./BasePage";
+import {BehaviorSubject, Observable} from "rxjs";
 
 export class LoginPage extends BasePage {
     baseUrl: string = '/';
@@ -9,13 +10,21 @@ export class LoginPage extends BasePage {
         userNameInputField: '[name="username"]',
         passwordInputField: '[name="password"]',
         submitButton: '[type="submit"]',
+        logoutButton: '[href="logout.htm"]',
     };
+
+    userId: BehaviorSubject<number> = new BehaviorSubject(undefined);
+    loggedInUserId: Observable<number> = this.userId.asObservable();
+    accountId: BehaviorSubject<number> = new BehaviorSubject(undefined);
+    userDefaultAccountId: Observable<number> = this.accountId.asObservable();
 
     constructor(private userType: UserType) {
         super();
     }
 
-    public login(): void {
+    public async login(): Promise<void> {
+        cy.intercept('GET', '/parabank/services_proxy/bank/customers/**/accounts').as('accountRequest');
+
         cy.visit(this.url);
 
         cy.fixture('users.json').then((userData) => {
@@ -24,8 +33,15 @@ export class LoginPage extends BasePage {
             this.passwordInputField.type(user.password);
             this.submitButton.click();
         });
-    }
 
+        return new Promise((resolve) => {
+            cy.wait('@accountRequest').then(({response}) => {
+                this.userId.next(response.body[0].customerId);
+                this.accountId.next(response.body[0].id);
+                resolve();
+            });
+        });
+    }
 
 
     get url(): string{
@@ -44,4 +60,7 @@ export class LoginPage extends BasePage {
         return cy.get(this.selectors.submitButton);
     }
 
+    logout() {
+        cy.get(this.selectors.logoutButton).click();
+    }
 }

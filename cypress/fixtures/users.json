@@ -4,7 +4,17 @@
     "password": "demo"
   },
   "testUser": {
-    "userName": "SeedUserLaba123",
-    "password": "demo"
+    "username": "test",
+    "password": "demo",
+    "firstName": "Test",
+    "lastName": "User",
+    "ssn": 12344,
+    "address": {
+      "street": "street",
+      "city": "city",
+      "state": "state",
+      "zipCode": 3344,
+      "phoneNumber": 12344
+    }
   }
 }
