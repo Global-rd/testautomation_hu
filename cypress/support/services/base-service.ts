@@ -8,4 +8,8 @@ export abstract class BaseService {
     verifyResponseProperty(response: Cypress.Response<any>, property: string): void {
         expect(response.body).to.have.property(property);
     }
+
+    verifyResponseMessage(response: Cypress.Response<any>, message: string): void {
+        expect(response.body).to.eq(message);
+    }
 }
