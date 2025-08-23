@@ -1,0 +1,18 @@
+{
+  "name": "canvas-calculator-e2e",
+  "private": true,
+  "scripts": {
+    "open": "cypress open --config-file cypress.config.ts",
+    "test": "cypress run --config-file cypress.config.ts"
+  },
+  "devDependencies": {
+    "cypress": "^13.6.0",
+    "typescript": "^5.5.4",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.11.30"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "tesseract.js": "^5.1.0"
+  }
+}
