@@ -21,7 +21,6 @@ export class ButtonProviderService {
 
 
     constructor(private calculatorSize: CalculatorSize) {
-        console.log(calculatorSize);
         this.pattern = new RegExp(this.getEscapedTokens(), 'g');
 
         this.keyWidth = calculatorSize.width * this.keyWidthPercentage;
@@ -34,7 +33,7 @@ export class ButtonProviderService {
         return this.resultScreenHeight;
     }
 
-    public parseInput(input: string): string[] {
+    public parseInput(input: string): RegExpMatchArray | null {
         return input.match(this.pattern);
     }
 
