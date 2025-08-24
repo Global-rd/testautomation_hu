@@ -1,82 +1,55 @@
-import { CALCULATOR_URL, getCanvasCenter } from "../utils/helpers";
 import { expect, test } from "@playwright/test";
-
+import { CalculatorPage } from "../pages/CalculatorPage";
 import Tesseract from "tesseract.js";
-import { keys } from "../utils/keys";
 require("dotenv").config();
 
-// Helper function to click calculator button
-const clickCalculatorButton = async ( page, positionX, positionY, canvasSize, digit ) => {
-	const browserName = test.info().project.name;
+test("canvas calculator operation", async ({ page, browserName }) => {
+	const calculator = new CalculatorPage(page, browserName);
 
-	// Only adjust canvas size on WebKit
-	let adjustedCanvas = { ...canvasSize };
-	if (browserName === "webkit") {
-		const dpr = await page.evaluate(() => window.devicePixelRatio);
-		adjustedCanvas = {
-		width: canvasSize.width / dpr,
-		height: canvasSize.height / dpr,
-		};
-	}
+	await calculator.goto(process.env.CALCULATOR_URL);
 
-	const buttonData = keys.getButtons(
-		adjustedCanvas.width,
-		adjustedCanvas.height,
-		digit
-	);
-
-	const clickX = positionX + (buttonData[0] - adjustedCanvas.width / 2);
-	const clickY = positionY + (buttonData[1] - adjustedCanvas.height / 2);
-
-	console.log(`Clicking digit ${digit} at position:`, [clickX, clickY]);
-	await page.mouse.click(clickX, clickY);
-	await page.waitForTimeout(500);
-};
-
-test("calculates", async ({ page }) => {
-	await page.goto(CALCULATOR_URL);
-
-	const { x: positionX, y: positionY } = await getCanvasCenter(page);
-	console.log("Canvas center position:", { positionX, positionY });
-
-	// Get canvas size for button calculations
-	const canvasSize = await page.evaluate(() => {
-		const canvas = document.querySelector("canvas");
-		return { width: canvas.width, height: canvas.height };
-	});
+	const { x: positionX, y: positionY } = await calculator.getCanvasCenter();
+	const canvasSize = await calculator.getCanvasSize();
 
 	const inputDigit1 = parseInt(process.env.NUMBER1, 10);
 	const inputDigit2 = parseInt(process.env.NUMBER2, 10);
+	const operation = process.env.OPERATION || "adds";
 
-	let expectedNumber = inputDigit1 + inputDigit2;
+	let expectedNumber;
+	switch (operation) {
+		case "adds": expectedNumber = inputDigit1 + inputDigit2; break;
+		case "subs": expectedNumber = inputDigit1 - inputDigit2; break;
+		case "multi": expectedNumber = inputDigit1 * inputDigit2; break;
+		case "divs": expectedNumber = inputDigit1 / inputDigit2; break;
+	}
+
 	await page.waitForTimeout(1000);
 
 	const digits1 = [...inputDigit1.toString()].map(Number);
 	const digits2 = [...inputDigit2.toString()].map(Number);
-	const inputArray = [...digits1, "adds", ...digits2, "eq"];
-
+	const inputArray = [...digits1, operation, ...digits2, "eq"];
 	console.log(inputArray);
-	// Click the buttons in sequence
+
 	for (const element of inputArray) {
-		await clickCalculatorButton( page, positionX, positionY, canvasSize, element );
-		await page.waitForTimeout(1000); // Optional delay between clicks
+		await calculator.clickButton(element, positionX, positionY, canvasSize);
+		await page.waitForTimeout(1000);
 	}
-	// Perform OCR on canvas
-	const dataURL = await keys.readOCR(page);
 
-	const {data: { text } } = await Tesseract.recognize(dataURL, "eng", {
-		tessedit_char_whitelist: "0123456789.",
-		tessedit_pageseg_mode: "7",
-	});
+	// OCR with fallback
+	const dataURL = await calculator.getOCRText();
+	let { data: { text } } = await Tesseract.recognize(dataURL, "eng");
 
-	console.log("OCR Result:", text);
+	let ocrMatch = text.match(/\d+/);
+	if (!ocrMatch) {
+		console.warn(`OCR first attempt failed. Retrying with relaxed config. Raw text: "${text}"`);
+		({ data: { text } } = await Tesseract.recognize(dataURL, "eng", { tessedit_pageseg_mode: "6" }));
+		ocrMatch = text.match(/\d+/);
+	}
 
-	// Extract first number from OCR result
-	const lines = text.split("\n").filter((line) => line.trim());
-	const ocrNumber = lines[0] || text.split("\n")[0];
-	console.log("Extracted number:", ocrNumber);
-	await page.pause();
+	if (!ocrMatch) {
+		throw new Error(`OCR failed to detect number after retry. Raw text: "${text}"`);
+	}
 
-	// Verify OCR result matches expected
-	expect(Number(ocrNumber)).toBe(expectedNumber);
+	const ocrNumber = parseInt(ocrMatch[0], 10);
+	expect(ocrNumber).toBe(expectedNumber);
 });

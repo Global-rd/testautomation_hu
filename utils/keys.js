@@ -90,7 +90,6 @@ export class Keys {
 			return [canvasCenterX, canvasCenterY];
 		}
 
-		console.log("X:", X, "Y:", Y);
 		return [X, Y];
 	}
 }
