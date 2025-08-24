@@ -1,12 +1,18 @@
 {
   "dependencies": {
-    "playwright": "^1.55.0"
+    "jimp": "^1.6.0",
+    "playwright": "^1.55.0",
+    "tesseract.ts": "^1.1.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.3.0"
   },
   "scripts": {
-    "test": "npx playwright test"
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
   }
 }
