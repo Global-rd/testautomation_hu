@@ -1,16 +1,34 @@
 {
-  "name": "20",
+  "name": "testautomation_hu",
   "version": "1.0.0",
-  "description": "",
+  "description": "GraphQL - npm install: @apollo/server, express\r     In memory Rest mock install: express-openapi-validator, ymljs, express\r     Kafka: npm i kafkajs, express. \r      install docker a host gepre, futtatni, majd 'docker compose up' a mappaban ahol a docker-compose megtalalhato. Ha fut a service dockerben, akkor inditani a kafka-mock.js-t (node kafka-mock.js parancs)",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Global-rd/testautomation_hu.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Global-rd/testautomation_hu/issues"
+  },
+  "homepage": "https://github.com/Global-rd/testautomation_hu#readme",
   "devDependencies": {
-    "@playwright/test": "^1.54.1",
-    "cypress": "^14.5.2"
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0",
+    "@types/tesseract.js": "^0.0.2",
+    "dotenv": "^17.2.1",
+    "playwright": "^1.55.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "tesseract.js": "^4.1.1"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
