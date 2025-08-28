@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { CanvasClickHelper } from "../utils/CanvasClickHelper";
 import Tesseract from "tesseract.js";
 
@@ -26,23 +26,29 @@ const buttonMap: ButtonMap = {
 
 export class CalculatorPage {
 	private page: Page;
-	private canvasSelector = "canvas";
-	private clickHelper: CanvasClickHelper<typeof buttonMap>;
+	private canvas!: Locator;
+	private clickHelper!: CanvasClickHelper<typeof buttonMap>;
 
 	constructor(page: Page) {
 		this.page = page;
-		this.clickHelper = new CanvasClickHelper(page, this.canvasSelector, buttonMap);
+	}
+
+	async init(): Promise<void> {
+		this.canvas = this.page.frameLocator("iframe").locator("canvas");
+		await this.canvas.waitFor({ state: "visible", timeout: 10000 });
+
+		this.clickHelper = new CanvasClickHelper(this.page, this.canvas, buttonMap);
 	}
 
 	async pressNumber(num: number): Promise<void> {
 		for (const digit of num.toString().split("")) {
-		await this.clickHelper.click(digit);
+			await this.clickHelper.click(digit);
 		}
 	}
 
-	async pressOperation(op: Operation): Promise<void> {
-        await this.clickHelper.click(op);
-    }
+	async pressOperation(op: "+" | "-" | "*" | "/"): Promise<void> {
+		await this.clickHelper.click(op);
+	}
 
 	async pressEquals(): Promise<void> {
 		await this.clickHelper.click("=");
@@ -53,10 +59,29 @@ export class CalculatorPage {
 	}
 
 	async getResult(): Promise<number> {
-		const canvas = await this.page.locator(this.canvasSelector);
-		const buffer = await canvas.screenshot();
-		const { data } = await Tesseract.recognize(buffer, "eng");
-		const text = data.text.replace(/\D/g, ""); // kiszűri a zajt
-		return Number(text);
+		await this.canvas.waitFor({ state: "visible" });
+
+		const box = await this.canvas.boundingBox();
+		if (!box) throw new Error("Canvas not found");
+
+		const displayHeight = Math.floor(box.height * 0.15);
+		const buffer = await this.page.screenshot({
+			clip: {
+				x: box.x,
+				y: box.y,
+				width: box.width,
+				height: displayHeight
+			}
+		});
+
+		const { data: { text } } = await Tesseract.recognize(
+			buffer,"eng",{
+				tessedit_char_whitelist: "0123456789" 
+			} as any
+		);
+
+		const clean = text.replace(/\D/g, "");
+		return parseInt(clean, 10);
 	}
+
 }
