@@ -13,13 +13,22 @@ export class CanvasClickHelper<TButton extends string> {
   ) {}
 
   async click(button: TButton) {
-    const coords = this.buttons[button];
-    if (!coords) throw new Error(`Unknown button: ${String(button)}`);
+    const target = this.buttons[button]; // intrinsic coords
+    const canvas = this.page.locator("canvas"); // or keep a field for it
+    await canvas.scrollIntoViewIfNeeded();
 
-    const clickX = this.origin.x + (coords.x - this.canvasSize.width / 2);
-    const clickY = this.origin.y + (coords.y - this.canvasSize.height / 2);
+    const box = await canvas.boundingBox();
+    if (!box) throw new Error("Canvas not visible");
 
-    await this.page.mouse.click(clickX, clickY);
+    const { w, h } = await canvas.evaluate((c: HTMLCanvasElement) => ({
+      w: c.width,
+      h: c.height,
+    }));
+
+    const offsetX = (target.x * box.width) / w;
+    const offsetY = (target.y * box.height) / h;
+
+    await this.page.mouse.click(box.x + offsetX, box.y + offsetY);
     await this.page.waitForTimeout(150);
   }
 }
