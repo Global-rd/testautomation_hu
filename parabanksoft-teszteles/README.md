@@ -7,7 +7,7 @@ Tesztelendő alkalmazás: https://parabank.parasoft.com/
 ---
 
 ## Projekt felépítése
-paralab/
+parabanksoft-tesztelés
 ├── cypress/
 │ ├── e2e/
 │ │ ├── ui/ # UI tesztek
@@ -31,8 +31,3 @@ Tesztelt funkciók
 Egyedi Cypress parancsok
 A cypress/support/commands.js fájl tartalmaz újrahasznosítható parancsokat:
     cy.registerUser(); // Új user regisztrálása EPOCH idő alapján
-
-Szerző
-Név: Hauck Polla Metta
-
-Branch: polla_hauck_20

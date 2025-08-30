@@ -1,4 +1,4 @@
-describe("API – számlaegyenleg ellenőrzése", () => {
+describe("API számlaegyenleg ellenőrzése", () => {
   let accountId;
   let username;
   let password;

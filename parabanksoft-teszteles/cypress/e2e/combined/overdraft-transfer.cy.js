@@ -5,7 +5,7 @@ beforeEach(() => {
   cy.registerUser();
 });
 
-it("Overdraft teszt – nagyobb összeg utalása a számlánál, stabil kivárással és loggal", () => {
+it("Overdraft teszt nagyobb összeg utalása a számlánál, stabil kivárással és loggal", () => {
   // Új számla nyitása
   cy.contains("Open New Account").click();
   cy.get("#type").select("SAVINGS");
@@ -36,7 +36,7 @@ it("Overdraft teszt – nagyobb összeg utalása a számlánál, stabil kivárá
         accountNumber: newAccountNumber,
       });
 
-      cy.log(`📄 Mentett számlaszám: ${newAccountNumber}`);
+      cy.log(` Mentett számlaszám: ${newAccountNumber}`);
     });
 
   // Balance kivárása és logolása

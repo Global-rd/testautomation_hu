@@ -26,7 +26,7 @@ it("Nem engedélyezett azonos számlára utalás – hibakezelés", () => {
       cy.writeFile("cypress/fixtures/account.json", {
         accountNumber: newAccountNumber,
       });
-      cy.log(`📄 Új számlaszám: ${newAccountNumber}`);
+      cy.log(`Új számlaszám: ${newAccountNumber}`);
     });
 
   cy.then(() => {
@@ -45,18 +45,18 @@ it("Nem engedélyezett azonos számlára utalás – hibakezelés", () => {
 
     cy.get("#rightPanel", { timeout: 5000 }).then(($panel) => {
         const text = $panel.text();
-        cy.log("📋 UI válasz tartalma:", text);
+        cy.log("UI válasz tartalma:", text);
 
         if (text.includes("Transfer Complete")) {
             cy.screenshot("hiba_azonos_szamla_utalas");
-            throw new Error("❌ A rendszer engedélyezte az azonos számlára történő utalást.");
+            throw new Error(" A rendszer engedélyezte az azonos számlára történő utalást.");
         } else {
             expect(
             text.toLowerCase().includes("error") ||
             text.toLowerCase().includes("cannot") ||
             text.toLowerCase().includes("same account")
             ).to.be.true;
-            cy.log("✅ A rendszer megfelelően visszautasította az utalást.");
+            cy.log("A rendszer megfelelően visszautasította az utalást.");
   }
   });
 });
