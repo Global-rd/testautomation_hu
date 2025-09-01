@@ -1,9 +1,31 @@
-# testautomation_hu
-## 19. alkalom
-    GraphQL - npm install: @apollo/server, express
-    In memory Rest mock install: express-openapi-validator, ymljs, express
-    Kafka: npm i kafkajs, express. 
-     install docker a host gepre, futtatni, majd 'docker compose up' a mappaban ahol a docker-compose megtalalhato. Ha fut a service dockerben, akkor inditani a kafka-mock.js-t (node kafka-mock.js parancs) 
+1. Canvas alapú kalkulátor tesztelése
+Ez a projekt egy automatizált tesztkészletet tartalmaz,
+amely a Playwright keretrendszert használja egy Canvas alapú kalkulátor alkalmazás működésének ellenőrzésére
+OCR segítségével.
 
-##22. alkalom - Github Actions
-    workflows/playwright.yml -> push trigger
+2. Követelmények
+Node.js (ajánlott: LTS verzió)
+npm
+3. Főbb csomagok:
+@playwright/test – teszteléshez
+tesseract.js – OCR felismeréshez
+@types/node – Node.js típusdefiníciók
+4. Telepítés
+npm install
+npm install tesseract.js
+
+5. Teszt UI használata:
+npx playwright test --project=firefox --ui
+
+6. Fő funkciók
+Kalkulátor gombjainak automatikus kattintása a canvas-on
+OCR felismerés a Tesseract.js segítségével
+Eredmények összevetése az elvárt értékekkel
+7. Tippek és hibakezelés
+Ha az OCR eredmény nem megfelelő, ellenőrizd a gombok koordinátáit a support/keys.js fájlban.
+A tesztadatokat a tests/fixture/numbers.json fájlban módosíthatod.
+8. Fejlesztői parancsok
+Tesztek futtatása:
+npx playwright test
+9.Tesztjelentés megtekintése:
+npx playwright show-report
