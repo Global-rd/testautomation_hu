@@ -1,9 +1,10 @@
 # testautomation_hu
-## 19. alkalom
-    GraphQL - npm install: @apollo/server, express
-    In memory Rest mock install: express-openapi-validator, ymljs, express
-    Kafka: npm i kafkajs, express. 
-     install docker a host gepre, futtatni, majd 'docker compose up' a mappaban ahol a docker-compose megtalalhato. Ha fut a service dockerben, akkor inditani a kafka-mock.js-t (node kafka-mock.js parancs) 
 
-##22. alkalom - Github Actions
-    workflows/playwright.yml -> push trigger
+## `.env` example
+
+        FIRST_NUMBER=42
+        SECOND_NUMBER=7
+        ADD_RESULT=49
+        SUBTRACT_RESULT=35
+        MULTIPLY_RESULT=294
+        DIVIDE_RESULT=6
