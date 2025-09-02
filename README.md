@@ -1,38 +1,47 @@
-Házi feladat – OOP + TypeScript a Canvas tesztelésben
-Tesztelendő rendszer
-Egy canvas alapon működő számológép:
-🔗 https://www.online-calculator.com/full-screen-calculator/
-A számológép nem DOM alapú elemekből épül fel, hanem egy canvas elembe rajzolja az
-egész UI-t, így a gombnyomásokat koordinátákon keresztül kell megoldani.
+# OOP + TypeScript Canvas Calculator Tesztelés
 
-Feladatok
-1. OOP – Page Object és Service réteg kialakítása
-● TypeScript nyelven hozz létre egy CalculatorPage osztályt, amely:
-○ Metódust tartalmaz szám bevitelére: pressNumber(num: number)
-○ Metódust tartalmaz művelet kiválasztására: pressOperation(op: '+' | '-' | '*' | '/')
-○ Metódust tartalmaz az eredmény lekérésére OCR segítségével: getResult():
-Promise<number>
+Ez a projekt egy **OOP alapú automatizált tesztet** valósít meg egy canvas alapú online számológéphez. A számológép UI-ja canvas elemekből áll, így a gombnyomásokat koordináták alapján kell kezelni.
 
-● Hozz létre egy CalculatorService osztályt, amely:
-○ Betölti a tesztadatokat .env-ből vagy fixture-ből
-○ Meghívja a CalculatorPage metódusait egy adott művelet végrehajtásához
-○ Visszaadja az eredményt ellenőrzésre a tesztnek
+## Tesztelendő rendszer
+- **URL:** [https://www.online-calculator.com/full-screen-calculator/](https://www.online-calculator.com/full-screen-calculator/)
+- A számológép **nem DOM elemekből** épül fel, hanem canvas-on rajzolja a felületet.
+- Teszteléshez koordinátákon alapuló kattintások és OCR szükséges az eredmények olvasásához.
 
-2. TypeScript – Generikus segédosztály a Canvas interakcióhoz
-● Készíts egy CanvasClickHelper<T> generikus osztályt vagy függvényt, amely:
-○ T típusként kapja meg a gombok koordináta-térképét (Record<string, { x:
-number; y: number }>).
-○ Biztosítja, hogy csak a típusban definiált gombnevekre lehessen kattintani.
+## Projekt struktúra
 
-● Használd ezt a CalculatorPage osztályban, hogy a gombnyomások típusbiztosak
-legyenek.
+```
+src/
+├─ pages/
+│  └─ CalculatorPage.ts       # Page Object osztály a canvas interakcióhoz
+├─ services/
+│  └─ CalculatorService.ts    # Service réteg a tesztadatok kezeléséhez és műveletek végrehajtásához
+├─ utils/
+│  └─ CanvasClickHelper.ts    # Generikus segédosztály a canvas gombnyomásokhoz
+├─ tests/
+│  └─ calculator.spec.ts         # Tesztesetek Playwright/Cypress segítségével
+.env                          # Tesztadatok konfigurációja
+```
 
-Technológiai megkötések
-● Tesztkeretrendszer: Playwright vagy Cypress
-● Nyelv: TypeScript
-● OCR könyvtár: Szabadon választható, működő OCR megoldás kötelező
 
-Beadás módja
-1. Új branch létrehozása a GitHub repositoryban
-2. Tesztkód, Page Object osztályok, utility modulok és konfigurációk feltöltése
-3. Branch link beküldése Classroomban
+## Telepítés és futtatás
+
+1. Klónozd a repository-t:
+
+```bash
+git clone <repo-url>
+cd <repo-folder>
+```
+
+2. Telepítsd a függőségeket:
+
+```bash
+npm install
+```
+
+3. Futtasd a teszteket:
+
+
+```bash
+npx playwright test
+```
+
