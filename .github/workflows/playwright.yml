@@ -1,43 +1,27 @@
 name: Playwright Tests
-
 on:
   push:
-    branches: [ balint_gondar_20 ]
-
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: 18
-        cache: 'npm'
-    
+        node-version: lts/*
     - name: Install dependencies
-      run: |
-        cd balint_gondar_20
-        npm ci
-    
+      run: npm ci
     - name: Install Playwright Browsers
-      run: |
-        cd balint_gondar_20
-        npx playwright install --with-deps
-    
+      run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: |
-        cd balint_gondar_20
-        npx playwright test
-    
-    - name: Upload test results
-      if: always()
-      uses: actions/upload-artifact@v4
+      run: npx playwright test
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
       with:
         name: playwright-report
-        path: |
-          balint_gondar_20/playwright-report/
-          balint_gondar_20/test-results/
+        path: playwright-report/
         retention-days: 30
