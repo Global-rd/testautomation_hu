@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  cypress:
-    platform: linux/amd64
-    image: cypress/included:13.6.0
-    volumes:
-      - .:/e2e
-    working_dir: /e2e
