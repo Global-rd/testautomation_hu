@@ -1,87 +1,65 @@
-import { Page, Locator } from "@playwright/test";
+import { FrameLocator, Page } from "@playwright/test";
 import { CanvasClickHelper } from "../utils/CanvasClickHelper";
+import { CalculatorButton } from "../utils/types";
 import Tesseract from "tesseract.js";
-
-type Operation = "+" | "-" | "*" | "/";
-type ButtonMap = Record<string, { x: number; y: number }>;
-
-const buttonMap: ButtonMap = {
-    "0": { x: 120, y: 540 },
-    "1": { x: 50, y: 480 },
-    "2": { x: 120, y: 480 },
-    "3": { x: 190, y: 480 },
-    "4": { x: 50, y: 420 },
-    "5": { x: 120, y: 420 },
-    "6": { x: 190, y: 420 },
-    "7": { x: 50, y: 360 },
-    "8": { x: 120, y: 360 },
-    "9": { x: 190, y: 360 },
-    "+": { x: 260, y: 480 },
-	"-": { x: 260, y: 420 },
-  	"*": { x: 260, y: 360 },
-  	"/": { x: 260, y: 300 },
-  	"=": { x: 260, y: 540 },
-    "C": { x: 50, y: 300 }
-};
+import { buildButtonMap } from "../utils/CalculatorButtonMap";
 
 export class CalculatorPage {
-	private page: Page;
-	private canvas!: Locator;
-	private clickHelper!: CanvasClickHelper<typeof buttonMap>;
+  private clickHelper!: CanvasClickHelper<Record<CalculatorButton, { x: number; y: number }>>;
+  private frame: FrameLocator;
 
-	constructor(page: Page) {
-		this.page = page;
-	}
+  constructor(private page: Page) {
+    this.frame = this.page.frameLocator("#fullframe");
+  }
 
-	async init(): Promise<void> {
-		this.canvas = this.page.frameLocator("iframe").locator("canvas");
-		await this.canvas.waitFor({ state: "visible", timeout: 10000 });
+  private async initClickHelper() {
+    const boundingBox = await this.frame.locator("canvas").boundingBox();
+    if (!boundingBox) throw new Error("Canvas not found");
+    const map = buildButtonMap(boundingBox.width, boundingBox.height);
+    this.clickHelper = new CanvasClickHelper(this.page, map);
+  }
 
-		this.clickHelper = new CanvasClickHelper(this.page, this.canvas, buttonMap);
-	}
+  async goto(url: string) {
+    await this.page.goto(url);
+    await this.frame.locator("canvas").waitFor();
+    await this.initClickHelper();
+  }
 
-	async pressNumber(num: number): Promise<void> {
-		for (const digit of num.toString().split("")) {
-			await this.clickHelper.click(digit);
-		}
-	}
+  private async getCanvasCenter() {
+    const boundingBox = await this.frame.locator("canvas").boundingBox();
+    if (!boundingBox) throw new Error("Canvas not found inside iframe");
+    return {
+      x: boundingBox.x + boundingBox.width / 2,
+      y: boundingBox.y + boundingBox.height / 2,
+    };
+  }
 
-	async pressOperation(op: "+" | "-" | "*" | "/"): Promise<void> {
-		await this.clickHelper.click(op);
-	}
+  async pressNumber(num: number) {
+    const digits = num.toString().split("") as CalculatorButton[];
+    const center = await this.getCanvasCenter();
+    for (const d of digits) {
+      await this.clickHelper.clickButton(d, center);
+    }
+  }
 
-	async pressEquals(): Promise<void> {
-		await this.clickHelper.click("=");
-	}
+  async pressOperation(op: "+" | "-" | "*" | "/") {
+    const center = await this.getCanvasCenter();
+    await this.clickHelper.clickButton(op, center);
+  }
 
-	async clear(): Promise<void> {
-		await this.clickHelper.click("C");
-	}
+  async pressEquals() {
+    const center = await this.getCanvasCenter();
+    await this.clickHelper.clickButton("=", center);
+  }
 
-	async getResult(): Promise<number> {
-		await this.canvas.waitFor({ state: "visible" });
+  async getResult(): Promise<number> {
+    const dataURL = await this.frame.locator("canvas").evaluate((canvas: HTMLCanvasElement) => {
+      return canvas.toDataURL();
+    });
 
-		const box = await this.canvas.boundingBox();
-		if (!box) throw new Error("Canvas not found");
-
-		const displayHeight = Math.floor(box.height * 0.15);
-		const buffer = await this.page.screenshot({
-			clip: {
-				x: box.x,
-				y: box.y,
-				width: box.width,
-				height: displayHeight
-			}
-		});
-
-		const { data: { text } } = await Tesseract.recognize(
-			buffer,"eng",{
-				tessedit_char_whitelist: "0123456789" 
-			} as any
-		);
-
-		const clean = text.replace(/\D/g, "");
-		return parseInt(clean, 10);
-	}
-
+    const { data: { text } } = await Tesseract.recognize(dataURL, "eng");
+    const match = text.match(/\d+/);
+    if (!match) throw new Error(`OCR failed: ${text}`);
+    return parseInt(match[0], 10);
+  }
 }

@@ -1,24 +1,38 @@
 import { test, expect } from "@playwright/test";
 import { CalculatorPage } from "../pages/CalculatorPage";
 import { CalculatorService } from "../services/CalculatorService";
+import * as dotenv from "dotenv";
 
-test("Canvas calculator addition", async ({ page }) => {
-    // oldal betöltése + cookie elfogadás
-    await page.goto("https://www.online-calculator.com/full-screen-calculator/");
-    const acceptBtn = page.locator("text=Accept All");
-    if (await acceptBtn.isVisible()) await acceptBtn.click();
+dotenv.config();
 
-    // Page Object inicializálása
-    const calcPage = new CalculatorPage(page);
-    await calcPage.init();
+let calculatorPage: CalculatorPage;
+let service: CalculatorService;
 
-    // Service réteg
-    const service = new CalculatorService(calcPage);
+test.beforeEach(async ({ page }) => {
+  calculatorPage = new CalculatorPage(page);
+  await calculatorPage.goto(process.env.CALCULATOR_URL!);
+  service = new CalculatorService(calculatorPage);
 
-    // Tisztítás, számok és művelet
-    await calcPage.clear();
-    const result = await service.calculate(12, "+", 34);
+  const acceptButton = page.locator("text=AGREE");
+  if (await acceptButton.isVisible()) {
+    await acceptButton.click();
+  }
+});
 
-    // Assertion
-    expect(result).toBe(46);
+test("canvas calculator operation", async () => {
+  const num1 = parseInt(process.env.NUMBER1!, 10);
+  const num2 = parseInt(process.env.NUMBER2!, 10);
+  const op = process.env.OPERATION as "+" | "-" | "*" | "/";
+
+  const result = await service.calculate(num1, num2, op);
+
+  let expected: number;
+  switch (op) {
+    case "+": expected = num1 + num2; break;
+    case "-": expected = num1 - num2; break;
+    case "*": expected = num1 * num2; break;
+    case "/": expected = num1 / num2; break;
+  }
+
+  expect(result).toBe(expected);
 });

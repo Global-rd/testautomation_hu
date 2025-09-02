@@ -1,18 +1,13 @@
 import { CalculatorPage } from "../pages/CalculatorPage";
 
 export class CalculatorService {
-    private calcPage: CalculatorPage;
+  constructor(private page: CalculatorPage) {}
 
-    constructor(calcPage: CalculatorPage) {
-        this.calcPage = calcPage;
-    }
-
-    async calculate(a: number, op: "+" | "-" | "*" | "/", b: number): Promise<number> {
-        await this.calcPage.clear();
-        await this.calcPage.pressNumber(a);
-        await this.calcPage.pressOperation(op);
-        await this.calcPage.pressNumber(b);
-        await this.calcPage.pressEquals();
-        return await this.calcPage.getResult();
-    }
+  async calculate(num1: number, num2: number, op: "+" | "-" | "*" | "/"): Promise<number> {
+    await this.page.pressNumber(num1);
+    await this.page.pressOperation(op);
+    await this.page.pressNumber(num2);
+    await this.page.pressEquals();
+    return this.page.getResult();
+  }
 }
