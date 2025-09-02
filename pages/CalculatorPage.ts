@@ -7,15 +7,31 @@ import { buildButtonMap } from "../utils/CalculatorButtonMap";
 export class CalculatorPage {
 	private clickHelper!: CanvasClickHelper<Record<CalculatorButton, { x: number; y: number }>>;
 	private frame: FrameLocator;
+	private browserName: string;
 
 	constructor(private page: Page) {
 		this.frame = this.page.frameLocator("#fullframe");
+		this.browserName = (this.page.context() as any)._browser?._name || "chromium";
+	}
+
+	private async adjustForWebkit(box: { x: number; y: number; width: number; height: number }) {
+		if (this.browserName !== "webkit") return box;
+
+		const dpr = await this.page.evaluate(() => window.devicePixelRatio);
+		return {
+			x: box.x,
+			y: box.y,
+			width: box.width / dpr,
+			height: box.height / dpr,
+		};
 	}
 
 	private async initClickHelper() {
 		const boundingBox = await this.frame.locator("canvas").boundingBox();
 		if (!boundingBox) throw new Error("Canvas not found");
-		const map = buildButtonMap(boundingBox.width, boundingBox.height);
+
+		const adjusted = await this.adjustForWebkit(boundingBox);
+		const map = buildButtonMap(adjusted.width, adjusted.height);
 		this.clickHelper = new CanvasClickHelper(this.page, map);
 	}
 
@@ -30,9 +46,11 @@ export class CalculatorPage {
 		if (!boundingBox) throw new Error("Canvas not found inside iframe");
 		
 		//console.log(`Center: ${JSON.stringify(boundingBox.y + boundingBox.height / 2)}`); // debug
+		const adjusted = await this.adjustForWebkit(boundingBox);
+
 		return {
-		x: boundingBox.x + boundingBox.width / 2,
-		y: boundingBox.y + boundingBox.height / 2 + (boundingBox.height * 0.1), 
+			x: adjusted.x + adjusted.width / 2,
+			y: adjusted.y + adjusted.height / 2 + (adjusted.height * 0.1),
 		};
 	}
 
@@ -77,13 +95,14 @@ export class CalculatorPage {
 		const { data: { text } } = await Tesseract.recognize(processed, "eng", {
 			logger: (m: any) => process.env.DEBUG_CANVAS === "true" && console.log(m),
 		} as any);
+		const cleaned = text.replace(/\s+/g, "");
 
 		if (process.env.DEBUG_CANVAS === "true") {
 			await require("fs").promises.writeFile("ocr_debug.png", processed);
 			console.log("OCR raw text:", text);
 		}
 
-		const match = text.match(/[\d.]+/);
+		const match = cleaned.match(/[\d.]+/);
 		if (!match) throw new Error(`OCR failed: ${text}`);
 		return parseFloat(match[0]);
 	}
