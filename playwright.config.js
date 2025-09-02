@@ -38,6 +38,7 @@ module.exports = defineConfig({
     {
       name: "webkit",
       use: { ...devices["Desktop Safari"] },
+      timeout: 60000,
     },
 
     /* Test against mobile viewports. */

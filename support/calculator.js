@@ -1,4 +1,3 @@
-// calculator.js
 class CanvasCalculator {
   constructor(page) {
     this.page = page;
@@ -10,7 +9,7 @@ class CanvasCalculator {
   async init() {
     await this.page.goto(
       "https://www.online-calculator.com/full-screen-calculator/",
-      { timeout: 10000 }
+      { timeout: 20000 }
     );
 
     // Hide GDPR banner with CSS
