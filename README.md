@@ -49,23 +49,19 @@ This project performs automated tests on a calculator that is built on a canvas,
 
 You can run the tests using the following commands:
 
-- **Run tests with a visible browser (default)**:
+- **Run all tests (headless)**:
   ```bash
-   npm test
+    npx playwright test
   ```
-- **Run tests headless**:
+- **Run tests in a visible browser**:
   ```bash
-   npm run test:headless
+   npx playwright test --headed
   ```
 - **Run tests in UI mode**:
   ```bash
-   npm run test:ui
+   npx playwright test --ui
   ```
 - **Generate and view the HTML report**:
-  ```bash
-   npm run report
-  ```
-- **Open last HTML report run**:
   ```bash
    npx playwright show-report
   ```
@@ -76,18 +72,18 @@ You can run the tests using the following commands:
 
    This often happens because your test is clicking on the wrong spot. Here’s what you can do:
 
-- **Adjust Timings**: If your machine or internet is slow, increase the `page.waitForTimeout` values in `calculator.ts`.
+   - **Adjust Timings**: If your machine or internet is slow, increase the `page.waitForTimeout` values in `calculator.ts`.
 
-- **Check Coordinates**: If the calculator's layout changes, the button positions you've calculated might be off.
+   - **Check Coordinates**: If the calculator's layout changes, the button positions you've calculated might be off.
 
-- **Use Debug Mode**: Run `npm run test:debug` to see exactly where Playwright is clicking.
+   - **Use Debug Mode**: Run `npm run test:debug` to see exactly where Playwright is clicking.
 
 2. **OCR reads the wrong number**
 
    If the result doesn't match what's in your .env file, the OCR might be misinterpreting the screenshot.
 
-- **Check your config**: Make sure the results in your `.env` file are correct.
+   - **Check your config**: Make sure the results in your `.env` file are correct.
 
-- **View the Debug images**: The code saves `debug.png`, `debug2.png` and `error.png`. Look at these files to see what the OCR is "seeing."
+   - **View the Debug images**: The code saves `debug.png`, `debug2.png` and `error.png`. Look at these files to see what the OCR is "seeing."
 
-- **Tweak Preprocessing**: In `ocr.helper.ts`, try adjusting values like `contrast` or `scale` to improve the quality of the image for the OCR.
+   - **Tweak Preprocessing**: In `ocr.helper.ts`, try adjusting values like `contrast` or `scale` to improve the quality of the image for the OCR.
