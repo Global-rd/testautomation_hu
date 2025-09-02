@@ -82,15 +82,27 @@ export class CalculatorPage {
 		const box = await canvasHandle.boundingBox();
 		if (!box) throw new Error("Canvas boundingBox not found");
 
+		const isWebKit = this.browserName === "webkit";
+
 		const left = Math.floor(10);
 		const top = Math.floor(10);
 		const width = Math.floor(box.width - 20);
 		const height = Math.floor(box.height * 0.15);
-		const processed = await sharp(screenshotBuffer)
-		.extract({ left, top, width, height })
-		.grayscale()
-		.threshold(150)
-		.toBuffer();
+
+		const image = sharp(screenshotBuffer);
+		const metadata = await image.metadata();
+
+		const processed = await image
+			.extract({
+				left: isWebKit && metadata.width ? Math.floor(left * (metadata.width / box.width)) : left,
+				top: isWebKit && metadata.height ? Math.floor(top * (metadata.height / box.height)) : top,
+				width: isWebKit && metadata.width ? Math.floor(width * (metadata.width / box.width)) : width,
+				height: isWebKit && metadata.height ? Math.floor(height * (metadata.height / box.height)) : height,
+			})
+			.grayscale()
+			.threshold(150)
+			.toBuffer();
+
 
 		const { data: { text } } = await Tesseract.recognize(processed, "eng", {
 			logger: (m: any) => process.env.DEBUG_CANVAS === "true" && console.log(m),
