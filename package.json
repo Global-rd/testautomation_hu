@@ -1,0 +1,24 @@
+{
+  "name": "playwright-cucumber-bdd",
+  "version": "1.0.0",
+  "description": "Professional Playwright + Cucumber BDD boilerplate for thinking-tester-contact-list.herokuapp.com",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "browsers": "npx playwright install --with-deps",
+    "cucumber": "npx cucumber-js -c cucumber.conf.js --profile default",
+    "test": "npm run cucumber",
+    "report": "node reports/generate-html-report.js",
+    "test:report": "npm run cucumber && npm run report",
+    "setup:register": "REGISTER_ON_START=1 npm test --silent || true"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.45.0",
+    "dotenv": "^17.2.1",
+    "multiple-cucumber-html-reporter": "^3.7.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0"
+  }
+}
