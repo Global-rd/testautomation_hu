@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "jimp": "^1.6.0",
+    "sharp": "^0.34.3",
     "tesseract.js": "^4.1.1"
   },
   "directories": {

@@ -53,13 +53,39 @@ export class CalculatorPage {
   }
 
   async getResult(): Promise<number> {
-    const dataURL = await this.frame.locator("canvas").evaluate((canvas: HTMLCanvasElement) => {
-      return canvas.toDataURL();
-    });
+    const canvasHandle = await this.frame.locator("canvas").elementHandle();
+    if (!canvasHandle) throw new Error("Canvas not found");
 
-    const { data: { text } } = await Tesseract.recognize(dataURL, "eng");
-    const match = text.match(/\d+/);
+    // Készítünk egy screenshotot
+    const screenshotBuffer = await canvasHandle.screenshot();
+
+    // Fehér háttér + fekete számjegyek (sharpens OCR)
+    const sharp = require("sharp"); // npm install sharp
+    const box = await canvasHandle.boundingBox();
+    if (!box) throw new Error("Canvas boundingBox not found");
+
+    const left = Math.floor(10);
+    const top = Math.floor(10);
+    const width = Math.floor(box.width - 20);
+    const height = Math.floor(box.height * 0.15); // csak felső sáv
+    const processed = await sharp(screenshotBuffer)
+      .extract({ left, top, width, height })
+      .grayscale()
+      .threshold(150)
+      .toBuffer();
+
+    const { data: { text } } = await Tesseract.recognize(processed, "eng", {
+      logger: (m: any) => process.env.DEBUG_CANVAS === "true" && console.log(m),
+    } as any);
+
+    if (process.env.DEBUG_CANVAS === "true") {
+      await require("fs").promises.writeFile("ocr_debug.png", processed);
+      console.log("OCR raw text:", text);
+    }
+
+    const match = text.match(/[\d.]+/);
     if (!match) throw new Error(`OCR failed: ${text}`);
-    return parseInt(match[0], 10);
+    return parseFloat(match[0]);
   }
+
 }
