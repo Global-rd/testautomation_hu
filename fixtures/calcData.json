@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "a": 12,
+      "b": 7,
+      "op": "+",
+      "desc": "addition"
+    },
+    {
+      "a": 5,
+      "b": 9,
+      "op": "-",
+      "desc": "subtraction"
+    },
+    {
+      "a": 6,
+      "b": 7,
+      "op": "*",
+      "desc": "multiplication"
+    },
+    {
+      "a": 22,
+      "b": 7,
+      "op": "/",
+      "desc": "division"
+    },
+    {
+      "a": 3.14,
+      "b": 2.5,
+      "op": "+",
+      "desc": "floats add"
+    },
+    {
+      "a": 123,
+      "b": 0,
+      "op": "+",
+      "desc": "zero add"
+    },
+    {
+      "a": 0,
+      "b": 0,
+      "op": "*",
+      "desc": "zero mult"
+    }
+  ]
+}
