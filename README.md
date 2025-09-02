@@ -88,6 +88,6 @@ You can run the tests using the following commands:
 
 - **Check your config**: Make sure the results in your `.env` file are correct.
 
-- **View the Debug images**: The code saves `debug.png` and `debug2.png`. Look at these files to see what the OCR is "seeing."
+- **View the Debug images**: The code saves `debug.png`, `debug2.png` and `error.png`. Look at these files to see what the OCR is "seeing."
 
 - **Tweak Preprocessing**: In `ocr.helper.ts`, try adjusting values like `contrast` or `scale` to improve the quality of the image for the OCR.
